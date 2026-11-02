@@ -25,6 +25,19 @@ if not os.path.exists(TEMPLATES_DIR):
     os.makedirs(TEMPLATES_DIR, exist_ok=True)
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+css_dir = os.path.join(STATIC_DIR, "css")
+if os.path.exists(css_dir):
+    app.mount("/css", StaticFiles(directory=css_dir), name="css")
+
+js_dir = os.path.join(STATIC_DIR, "js")
+if os.path.exists(js_dir):
+    app.mount("/js", StaticFiles(directory=js_dir), name="js")
+
+webfonts_dir = os.path.join(STATIC_DIR, "webfonts")
+if os.path.exists(webfonts_dir):
+    app.mount("/webfonts", StaticFiles(directory=webfonts_dir), name="webfonts")
+
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 @app.get("/", response_class=HTMLResponse)
