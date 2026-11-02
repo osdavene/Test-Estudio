@@ -32,7 +32,7 @@ def get_subjects_list() -> List[dict]:
                         "icon": data.get("icon", "fa-book-open"),
                         "color": data.get("color", "emerald"),
                         "total_questions": len(data.get("questions", [])),
-                        "default_question_count": min(data.get("default_question_count", 20), len(data.get("questions", []))),
+                        "default_question_count": min(data.get("default_question_count", 15), len(data.get("questions", []))),
                     })
             except Exception as e:
                 print(f"Error loading subject from {filename}: {e}")
@@ -58,7 +58,7 @@ def get_subject_data(subject_id: str) -> Optional[dict]:
     with open(filepath, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def create_exam_session(subject_id: str, question_count: int = 20, time_limit_minutes: int = 20) -> dict:
+def create_exam_session(subject_id: str, question_count: int = 15, time_limit_minutes: int = 15) -> dict:
     """
     Creates a new exam session:
     - Randomly picks `question_count` questions from the pool.

@@ -7,7 +7,7 @@
   "badge": "Semana 15, 21 y 23",
   "icon": "fa-chart-pie",
   "color": "emerald",
-  "default_question_count": 20,
+  "default_question_count": 15,
   "questions": [
     {
       "id": 1,

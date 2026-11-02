@@ -10,10 +10,10 @@ Simulador web interactivo, rápido y ligero desarrollado con **Python (FastAPI +
 ## 🚀 Características Principales
 
 - **Sin inicios de sesión ni registros**: Acceso inmediato con 1 clic.
-- **Exámenes de 20 preguntas aleatorias**: Cada vez que inicias un test se extrae un subconjunto aleatorio de preguntas del banco de la materia.
+- **Exámenes de 15 preguntas aleatorias**: Cada vez que inicias un test se extrae un subconjunto aleatorio de preguntas del banco de la materia.
 - **Opciones en orden aleatorio**: Las alternativas (A, B, C, D) se mezclan en diferente orden en cada intento para evitar la memorización por posición.
-- **Navegador interactivo de preguntas**: Cuadrícula de 1 a 20 con estados visuales (Respondida, Sin responder, Pregunta actual).
-- **Temporizador configurable**: 20 minutos (1 min/pregunta), 15 min, 30 min o modo *Práctica Libre* sin límite de tiempo.
+- **Navegador interactivo de preguntas**: Cuadrícula de 1 a 15 con estados visuales (Respondida, Sin responder, Pregunta actual).
+- **Temporizador configurable**: 15 minutos (1 min/pregunta), 10 min, 20 min o modo *Práctica Libre* sin límite de tiempo.
 - **Calificación y Retroalimentación Inmediata**:
   - Porcentaje de acierto y escala de desempeño.
   - Métricas de correctas, incorrectas y tiempo empleado.

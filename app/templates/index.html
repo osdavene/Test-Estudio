@@ -15,7 +15,7 @@
             Practica tus materias con simulacros interactivos
         </h1>
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Sin inicios de sesión ni registros. Cada intento genera un examen nuevo con 20 preguntas aleatorias y respuestas barajadas en orden distinto para garantizar un aprendizaje genuino.
+            Sin inicios de sesión ni registros. Cada intento genera un examen nuevo con 15 preguntas aleatorias y respuestas barajadas en orden distinto para garantizar un aprendizaje genuino.
         </p>
     </div>
 
@@ -91,9 +91,9 @@
                                 Preguntas:
                             </label>
                             <select name="count" class="w-full text-xs font-semibold bg-slate-950 text-slate-200 border border-slate-800 rounded-xl px-3 py-2.5 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-colors">
-                                <option value="20" selected>20 preguntas (Recomendado)</option>
-                                <option value="15">15 preguntas</option>
+                                <option value="15" selected>15 preguntas (Recomendado)</option>
                                 <option value="10">10 preguntas (Rápido)</option>
+                                <option value="20">20 preguntas</option>
                                 <option value="{{ sub.total_questions }}">Todas ({{ sub.total_questions }} preguntas)</option>
                             </select>
                         </div>
@@ -102,9 +102,9 @@
                                 Tiempo límite:
                             </label>
                             <select name="timer" class="w-full text-xs font-semibold bg-slate-950 text-slate-200 border border-slate-800 rounded-xl px-3 py-2.5 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-colors">
-                                <option value="20" selected>20 minutos (1 min/preg)</option>
-                                <option value="15">15 minutos</option>
-                                <option value="30">30 minutos</option>
+                                <option value="15" selected>15 minutos (1 min/preg)</option>
+                                <option value="10">10 minutos</option>
+                                <option value="20">20 minutos</option>
                                 <option value="0">Sin límite (Práctica)</option>
                             </select>
                         </div>
@@ -150,7 +150,7 @@
             </div>
             <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/90 space-y-1">
                 <div class="font-bold text-emerald-400">3. Aleatoriedad Total</div>
-                <p class="text-slate-400 leading-relaxed">Los estudiantes recibirán 20 preguntas aleatorias con opciones desordenadas en cada intento.</p>
+                <p class="text-slate-400 leading-relaxed">Los estudiantes recibirán 15 preguntas aleatorias con opciones desordenadas en cada intento.</p>
             </div>
         </div>
     </div>

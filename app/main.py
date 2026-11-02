@@ -51,10 +51,10 @@ async def home(request: Request):
     )
 
 @app.get("/exam/{subject_id}", response_class=HTMLResponse)
-async def start_exam(request: Request, subject_id: str, count: int = 20, timer: int = 20):
+async def start_exam(request: Request, subject_id: str, count: int = 15, timer: int = 15):
     """
     Starts an exam session:
-    - Generates 20 random questions from the subject pool
+    - Generates 15 random questions from the subject pool
     - Shuffles the answer choices
     - Presents the test interface
     """
