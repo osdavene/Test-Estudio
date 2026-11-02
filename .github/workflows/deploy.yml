@@ -1,0 +1,46 @@
+name: 🚀 Despliegue Automático a AWS (test-estudio.servigest.online)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Desplegar Test-Estudio Python FastAPI en AWS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🔐 Ejecutar Despliegue en AWS vía SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          port: ${{ secrets.AWS_PORT || 22 }}
+          script_stop: true
+          script: |
+            echo "🚀 Iniciando despliegue de Test-Estudio en AWS..."
+            SITE_DIR="/home/testestudio/htdocs/test-estudio.servigest.online"
+            SITE_USER="testestudio"
+
+            sudo git config --global --add safe.directory "$SITE_DIR"
+
+            sudo -u "$SITE_USER" bash << 'EOF'
+            set -e
+            cd "/home/testestudio/htdocs/test-estudio.servigest.online"
+            git fetch origin main
+            git reset --hard origin/main
+            if [ ! -d ".venv" ]; then
+              python3 -m venv .venv
+            fi
+            .venv/bin/pip install --upgrade pip
+            .venv/bin/pip install -r requirements.txt
+            EOF
+
+            sudo systemctl restart test-estudio.service
+            echo "✅ ¡Despliegue de Test-Estudio completado con éxito en AWS!"

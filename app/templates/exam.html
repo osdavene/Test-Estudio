@@ -1,0 +1,430 @@
+{% extends "base.html" %}
+
+{% block title %}Examen en curso — {{ session.subject_name }}{% endblock %}
+
+{% block head %}
+<style>
+    .radio-card input[type="radio"]:checked + div {
+        border-color: #059669;
+        background-color: #ecfdf5;
+        box-shadow: 0 0 0 1px #059669;
+    }
+    .radio-card input[type="radio"]:checked + div .opt-badge {
+        background-color: #059669;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-[calc(100vh-8rem)] flex flex-col justify-between">
+
+    <!-- BARRA SUPERIOR FIJA DE CONTROL DEL EXAMEN -->
+    <div class="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex items-center justify-between gap-4">
+                
+                <!-- Identificación del Examen -->
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                                {{ session.subject_name }}
+                            </h1>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                                {{ session.grade }}
+                            </span>
+                        </div>
+                        <p class="text-[11px] text-slate-500 hidden sm:block">
+                            Preguntas aleatorias y respuestas dinámicas
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Temporizador y Control Finalizar -->
+                <div class="flex items-center gap-3">
+                    
+                    <!-- Progreso en número -->
+                    <div class="text-right hidden sm:block">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block -mb-0.5">Progreso</span>
+                        <span class="text-xs font-bold text-slate-800">
+                            <span id="answeredCount" class="text-emerald-600 font-extrabold">0</span> / {{ total_questions }}
+                        </span>
+                    </div>
+
+                    <!-- Temporizador -->
+                    {% if timer_minutes > 0 %}
+                    <div id="timerContainer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono font-bold shadow-inner">
+                        <i class="fa-regular fa-clock text-amber-400"></i>
+                        <span id="timerDisplay">--:--</span>
+                    </div>
+                    {% else %}
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">
+                        <i class="fa-solid fa-infinity text-emerald-600"></i>
+                        <span>Práctica Libre</span>
+                    </div>
+                    {% endif %}
+
+                    <!-- Botón Enviar / Finalizar -->
+                    <button type="button" onclick="openConfirmModal()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm shadow-emerald-600/30 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-flag-checkered text-[11px]"></i>
+                        <span>Finalizar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Barra de Progreso Visual -->
+            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-2.5">
+                <div id="progressBar" class="bg-emerald-500 h-full transition-all duration-300 w-0"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULARIO DEL EXAMEN -->
+    <form id="examForm" action="/exam/{{ session.exam_id }}/submit" method="post" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+        <input type="hidden" name="time_spent" id="timeSpentInput" value="0">
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+            
+            <!-- ÁREA PRINCIPAL: PREGUNTA ACTIVA -->
+            <div class="lg:col-span-3 space-y-4">
+
+                {% for q in questions %}
+                <div id="q-card-{{ q.order }}" class="question-pane bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 {% if q.order != 1 %}hidden{% endif %}">
+                    
+                    <!-- Encabezado de la Pregunta -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 font-extrabold flex items-center justify-center text-sm border border-emerald-200">
+                                #{{ q.order }}
+                            </span>
+                            <span class="text-xs font-bold text-slate-500">
+                                Pregunta {{ q.order }} de {{ total_questions }}
+                            </span>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                            {{ q.category }}
+                        </span>
+                    </div>
+
+                    <!-- Contexto Informativo / Tabla de Datos si existe -->
+                    {% if q.context %}
+                    <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 space-y-1">
+                        <div class="font-bold flex items-center gap-1.5 text-amber-800">
+                            <i class="fa-solid fa-table-list"></i>
+                            <span>Información del Ejercicio:</span>
+                        </div>
+                        <div class="font-medium whitespace-pre-line text-slate-700 mt-1 pl-1">
+                            {{ q.context }}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Texto de la Pregunta -->
+                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        {{ q.question }}
+                    </h2>
+
+                    <!-- Opciones de Respuesta -->
+                    <div class="space-y-3 pt-2">
+                        {% for opt in q.options %}
+                        <label class="radio-card block cursor-pointer select-none">
+                            <input type="radio" 
+                                   name="q_{{ q.order }}" 
+                                   value="{{ opt }}" 
+                                   class="hidden" 
+                                   onchange="onSelectAnswer({{ q.order }})">
+                            <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 transition-all flex items-start gap-3.5 bg-white">
+                                <span class="opt-badge w-6 h-6 rounded-md bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors">
+                                    {% if loop.index == 1 %}A{% elif loop.index == 2 %}B{% elif loop.index == 3 %}C{% else %}D{% endif %}
+                                </span>
+                                <span class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                                    {{ opt }}
+                                </span>
+                            </div>
+                        </label>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Navegación Inferior (Anterior / Siguiente) -->
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-100">
+                        <button type="button" 
+                                onclick="goToQuestion({{ q.order - 1 }})" 
+                                class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50 transition-colors flex items-center gap-1.5 {% if q.order == 1 %}invisible{% endif %}">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Anterior</span>
+                        </button>
+
+                        {% if q.order < total_questions %}
+                        <button type="button" 
+                                onclick="goToQuestion({{ q.order + 1 }})" 
+                                class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+                            <span>Siguiente</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        {% else %}
+                        <button type="button" 
+                                onclick="openConfirmModal()" 
+                                class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-md shadow-emerald-600/20">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Revisar y Calificar</span>
+                        </button>
+                        {% endif %}
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- PANEL LATERAL: NAVEGADOR DE PREGUNTAS -->
+            <div class="lg:col-span-1 space-y-4">
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm sticky top-36">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-grid-2 text-emerald-600"></i>
+                            <span>Navegador</span>
+                        </h3>
+                        <span class="text-[11px] text-slate-500">
+                            Total: <strong>{{ total_questions }}</strong>
+                        </span>
+                    </div>
+
+                    <!-- Cuadrícula de Burbujas de Preguntas -->
+                    <div class="grid grid-cols-5 gap-2 pt-1">
+                        {% for q in questions %}
+                        <button type="button" 
+                                id="nav-btn-{{ q.order }}" 
+                                onclick="goToQuestion({{ q.order }})" 
+                                class="h-9 w-full rounded-lg font-bold text-xs flex items-center justify-center transition-all border
+                                {% if q.order == 1 %}
+                                ring-2 ring-emerald-500 border-emerald-500 bg-white text-emerald-700
+                                {% else %}
+                                border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100
+                                {% endif %}">
+                            {{ q.order }}
+                        </button>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Leyenda de Estados -->
+                    <div class="mt-5 pt-4 border-t border-slate-100 space-y-2 text-[11px] text-slate-500">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-600 inline-block"></span>
+                            <span>Respondida</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-50 border border-slate-200 inline-block"></span>
+                            <span>Sin responder</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded bg-white border-2 border-emerald-500 inline-block"></span>
+                            <span>Pregunta actual</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón Enviar en Panel Lateral -->
+                    <div class="pt-4 mt-4 border-t border-slate-100">
+                        <button type="button" 
+                                onclick="openConfirmModal()" 
+                                class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-flag-checkered"></i>
+                            <span>Finalizar Examen</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<!-- MODAL DE CONFIRMACIÓN DE ENVÍO -->
+<div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-in fade-in duration-200">
+        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mx-auto">
+            <i class="fa-solid fa-clipboard-question"></i>
+        </div>
+        
+        <div class="text-center space-y-1">
+            <h3 class="text-lg font-bold text-slate-900">¿Deseas finalizar el examen?</h3>
+            <p id="modalAnswerSummary" class="text-xs text-slate-600 leading-relaxed">
+                Has respondido 0 de {{ total_questions }} preguntas.
+            </p>
+        </div>
+
+        <div id="modalWarning" class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 text-center font-medium hidden">
+            <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+            Tienes preguntas sin responder. Las no contestadas contarán como cero.
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 pt-2">
+            <button type="button" onclick="closeConfirmModal()" class="py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-50 transition-colors">
+                Seguir respondiendo
+            </button>
+            <button type="button" onclick="submitExamNow()" class="py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-colors">
+                Sí, calificar ahora
+            </button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const TOTAL_QUESTIONS = {{ total_questions }};
+    const TIMER_MINUTES = {{ timer_minutes }};
+    let currentQuestion = 1;
+    let secondsElapsed = 0;
+    let timerInterval = null;
+    let remainingSeconds = TIMER_MINUTES > 0 ? TIMER_MINUTES * 60 : 0;
+
+    // Cambiar a una pregunta específica
+    function goToQuestion(num) {
+        if (num < 1 || num > TOTAL_QUESTIONS) return;
+
+        // Ocultar pregunta actual
+        const currentCard = document.getElementById(`q-card-${currentQuestion}`);
+        if (currentCard) currentCard.classList.add('hidden');
+
+        // Mostrar nueva pregunta
+        const targetCard = document.getElementById(`q-card-${num}`);
+        if (targetCard) targetCard.classList.remove('hidden');
+
+        currentQuestion = num;
+        updateNavBubbles();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Actualizar estado al seleccionar una respuesta
+    function onSelectAnswer(order) {
+        updateProgress();
+        updateNavBubbles();
+    }
+
+    // Recalcular contador y barra de progreso
+    function updateProgress() {
+        let answered = 0;
+        for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+            const checked = document.querySelector(`input[name="q_${i}"]:checked`);
+            if (checked) answered++;
+        }
+
+        document.getElementById('answeredCount').textContent = answered;
+        const percent = (answered / TOTAL_QUESTIONS) * 100;
+        document.getElementById('progressBar').style.width = `${percent}%`;
+    }
+
+    // Actualizar estilo visual de las burbujas del navegador
+    function updateNavBubbles() {
+        for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+            const btn = document.getElementById(`nav-btn-${i}`);
+            if (!btn) continue;
+
+            const isCurrent = (i === currentQuestion);
+            const isAnswered = !!document.querySelector(`input[name="q_${i}"]:checked`);
+
+            // Resetear clases base
+            btn.className = "h-9 w-full rounded-lg font-bold text-xs flex items-center justify-center transition-all border ";
+
+            if (isAnswered) {
+                if (isCurrent) {
+                    btn.className += "bg-emerald-600 text-white ring-2 ring-emerald-400 border-emerald-600 shadow-sm";
+                } else {
+                    btn.className += "bg-emerald-500 text-white border-emerald-600";
+                }
+            } else {
+                if (isCurrent) {
+                    btn.className += "bg-white text-emerald-700 ring-2 ring-emerald-500 border-emerald-500";
+                } else {
+                    btn.className += "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+                }
+            }
+        }
+    }
+
+    // Modal de confirmación
+    function openConfirmModal() {
+        let answered = 0;
+        for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+            if (document.querySelector(`input[name="q_${i}"]:checked`)) answered++;
+        }
+
+        const summary = document.getElementById('modalAnswerSummary');
+        const warning = document.getElementById('modalWarning');
+
+        summary.innerHTML = `Has respondido <strong>${answered}</strong> de <strong>${TOTAL_QUESTIONS}</strong> preguntas.`;
+
+        if (answered < TOTAL_QUESTIONS) {
+            warning.classList.remove('hidden');
+        } else {
+            warning.classList.add('hidden');
+        }
+
+        document.getElementById('confirmModal').classList.remove('hidden');
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('confirmModal').classList.add('hidden');
+    }
+
+    function submitExamNow() {
+        document.getElementById('timeSpentInput').value = secondsElapsed;
+        document.getElementById('examForm').submit();
+    }
+
+    // Temporizador
+    function startTimer() {
+        if (TIMER_MINUTES <= 0) {
+            // Modo práctica libre: solo cuenta el tiempo transcurrido
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+            }, 1000);
+            return;
+        }
+
+        const display = document.getElementById('timerDisplay');
+        const container = document.getElementById('timerContainer');
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60);
+            const s = secs % 60;
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        display.textContent = formatTime(remainingSeconds);
+
+        timerInterval = setInterval(() => {
+            secondsElapsed++;
+            remainingSeconds--;
+
+            if (remainingSeconds <= 0) {
+                clearInterval(timerInterval);
+                display.textContent = "00:00";
+                alert("¡El tiempo límite ha concluido! Tus respuestas se calificarán a continuación.");
+                submitExamNow();
+                return;
+            }
+
+            display.textContent = formatTime(remainingSeconds);
+
+            // Alerta visual de tiempo por expirar
+            if (remainingSeconds <= 120) {
+                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-mono font-bold animate-pulse shadow-md";
+            } else if (remainingSeconds <= 300) {
+                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 text-slate-900 text-xs font-mono font-bold";
+            }
+        }, 1000);
+    }
+
+    // Inicialización al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProgress();
+        updateNavBubbles();
+        startTimer();
+    });
+</script>
+{% endblock %}

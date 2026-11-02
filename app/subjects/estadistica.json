@@ -1,0 +1,601 @@
+{
+  "id": "estadistica",
+  "name": "Estadística (Pensamiento Aleatorio)",
+  "grade": "Grado Tercero",
+  "institution": "Institución Educativa Cecilia de Lleras",
+  "description": "Evaluación basada en los Talleres 1, 4 y 5: Tabulación de datos, comparación de tablas de frecuencia, identificación de modas y redacción de conclusiones formales.",
+  "badge": "Semana 15, 21 y 23",
+  "icon": "fa-chart-pie",
+  "color": "emerald",
+  "default_question_count": 20,
+  "questions": [
+    {
+      "id": 1,
+      "category": "Conceptos Estadísticos",
+      "question": "¿Qué es una variable en un estudio estadístico?",
+      "context": null,
+      "options": [
+        "Una característica o cualidad que se observa o investiga en un grupo de estudio",
+        "El número total de personas que participan en una encuesta",
+        "El dibujo o gráfico que decora una hoja de trabajo",
+        "El instrumento para medir la estatura con una regla"
+      ],
+      "correct_answer": "Una característica o cualidad que se observa o investiga en un grupo de estudio",
+      "explanation": "En estadística, una variable es la característica, cualidad o aspecto que se observa, mide o investiga en los individuos u objetos de un estudio."
+    },
+    {
+      "id": 2,
+      "category": "Conceptos Estadísticos",
+      "question": "¿Cómo se define una variable cualitativa nominal?",
+      "context": null,
+      "options": [
+        "Tipo de variable cualitativa que describe cualidades sin ningún orden establecido",
+        "Variable que siempre se expresa con números y sumas matemáticas",
+        "Variable que exige un orden estricto como primer, segundo y tercer lugar",
+        "La cantidad total de estudiantes en un salón de clases"
+      ],
+      "correct_answer": "Tipo de variable cualitativa que describe cualidades sin ningún orden establecido",
+      "explanation": "La variable cualitativa nominal describe cualidades o categorías que no tienen un orden preestablecido (por ejemplo: color favorito, comida preferida, deporte)."
+    },
+    {
+      "id": 3,
+      "category": "Conceptos Estadísticos",
+      "question": "¿Cuál de los siguientes ejemplos corresponde a una variable cualitativa ordinal?",
+      "context": null,
+      "options": [
+        "El puesto ocupado en una competencia de atletismo (1.º, 2.º o 3.er puesto)",
+        "El sabor preferido de helado (chocolate, vainilla, fresa)",
+        "El color de los ojos de los estudiantes",
+        "La ciudad de nacimiento de un grupo de profesores"
+      ],
+      "correct_answer": "El puesto ocupado en una competencia de atletismo (1.º, 2.º o 3.er puesto)",
+      "explanation": "Es cualitativa ordinal porque describe una cualidad o categoría que tiene una jerarquía u orden establecido (primero, segundo, tercero)."
+    },
+    {
+      "id": 4,
+      "category": "Conceptos Estadísticos",
+      "question": "En un estudio estadístico, ¿qué representa la población?",
+      "context": null,
+      "options": [
+        "El conjunto total de individuos, objetos o elementos que se investigan",
+        "El número de veces que se repite la respuesta ganadora",
+        "El título que se coloca en la parte superior de la tabla",
+        "Únicamente los estudiantes que contestaron de manera afirmativa"
+      ],
+      "correct_answer": "El conjunto total de individuos, objetos o elementos que se investigan",
+      "explanation": "La población es el conjunto completo de todos los elementos o individuos sobre los cuales se realizan las observaciones o preguntas de la investigación."
+    },
+    {
+      "id": 5,
+      "category": "Conceptos Estadísticos",
+      "question": "¿A qué se le llama frecuencia absoluta en una tabla estadística?",
+      "context": null,
+      "options": [
+        "Al número de veces que se repite un dato o una categoría específica",
+        "Al promedio entre las respuestas mayores y menores",
+        "Al nombre de la materia o tema del taller escolar",
+        "A la lista de preguntas que se redactan antes de la encuesta"
+      ],
+      "correct_answer": "Al número de veces que se repite un dato o una categoría específica",
+      "explanation": "La frecuencia absoluta es la cantidad exacta de veces que se repite cada valor o dato dentro de la recolección de información."
+    },
+    {
+      "id": 6,
+      "category": "Conceptos Estadísticos",
+      "question": "¿Cuál es la función principal de una tabla de frecuencia técnica?",
+      "context": null,
+      "options": [
+        "Organizar y resumir los datos recolectados en filas y columnas claras",
+        "Ocultar los resultados que obtuvieron menor preferencia",
+        "Reemplazar por completo la necesidad de hacer preguntas a las personas",
+        "Asignar calificaciones numéricas a los encuestados"
+      ],
+      "correct_answer": "Organizar y resumir los datos recolectados en filas y columnas claras",
+      "explanation": "Una tabla de frecuencias es un instrumento organizador que distribuye los datos en filas y columnas con sus respectivas marcas de conteo y frecuencias numéricas."
+    },
+    {
+      "id": 7,
+      "category": "Conceptos Estadísticos",
+      "question": "¿Qué método se utiliza para formular preguntas y recolectar información directamente de un grupo de personas?",
+      "context": null,
+      "options": [
+        "La encuesta",
+        "El experimento de laboratorio químico",
+        "El dictado ortográfico",
+        "La tabla de multiplicar"
+      ],
+      "correct_answer": "La encuesta",
+      "explanation": "La encuesta es la técnica o instrumento estructurado para hacer preguntas y recolectar datos de un grupo poblacional específico."
+    },
+    {
+      "id": 8,
+      "category": "Conceptos Estadísticos",
+      "question": "¿En qué consiste el conteo técnico en la tabulación de datos?",
+      "context": null,
+      "options": [
+        "En registrar marcas o líneas por cada respuesta obtenida para luego totalizarlas",
+        "En adivinar los resultados antes de preguntar",
+        "En sumar solamente los números mayores de 10",
+        "En borrar los datos que están repetidos"
+      ],
+      "correct_answer": "En registrar marcas o líneas por cada respuesta obtenida para luego totalizarlas",
+      "explanation": "El conteo técnico consiste en trazar marcas ordenadas (palitos o marcas de conteo por grupos, usualmente de 5) cada vez que aparece una respuesta."
+    },
+    {
+      "id": 9,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "En la situación de la I.E. Cecilia de Lleras sobre helados (Chocolate: 10 votos, Vainilla: 8 votos, Fresa: 5 votos), ¿cuál es la variable analizada?",
+      "context": "Situación Helados (Grado 3°): Chocolate (10 votos), Vainilla (8 votos), Fresa (5 votos).",
+      "options": [
+        "Sabor de helado preferido",
+        "El número de profesores de la institución",
+        "El precio del helado en la cooperativa",
+        "El tamaño del cono de helado"
+      ],
+      "correct_answer": "Sabor de helado preferido",
+      "explanation": "La variable es la cualidad o preferencia que se investigó a los niños: 'Sabor de helado preferido'."
+    },
+    {
+      "id": 10,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "En el estudio del sabor de helado preferido, ¿a qué tipo de variable corresponde?",
+      "context": "Resultados: Chocolate (10 votos), Vainilla (8 votos), Fresa (5 votos).",
+      "options": [
+        "Variable cualitativa nominal",
+        "Variable cuantitativa continua",
+        "Variable cualitativa ordinal",
+        "Variable numérica de tiempo"
+      ],
+      "correct_answer": "Variable cualitativa nominal",
+      "explanation": "Es cualitativa nominal porque los sabores (chocolate, vainilla, fresa) son palabras/cualidades que no tienen ningún orden numérico o jerárquico."
+    },
+    {
+      "id": 11,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "¿Cuál es el tamaño total de la población encuestada en la actividad del sabor de helado?",
+      "context": "Votos: Chocolate = 10, Vainilla = 8, Fresa = 5.",
+      "options": [
+        "23 estudiantes",
+        "25 estudiantes",
+        "18 estudiantes",
+        "20 estudiantes"
+      ],
+      "correct_answer": "23 estudiantes",
+      "explanation": "El tamaño de la población encuestada es la suma de todas las frecuencias absolutas: 10 + 8 + 5 = 23 estudiantes."
+    },
+    {
+      "id": 12,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "De acuerdo con los datos del helado (Chocolate: 10, Vainilla: 8, Fresa: 5), ¿cuál sabor representa la moda?",
+      "context": "Resultados: Chocolate (10), Vainilla (8), Fresa (5).",
+      "options": [
+        "Chocolate, porque obtuvo la mayor frecuencia absoluta con 10 votos",
+        "Vainilla, porque está en el centro de la tabla",
+        "Fresa, porque fue el último sabor en ser nombrado",
+        "No hay moda porque todos los sabores tienen votos distintos"
+      ],
+      "correct_answer": "Chocolate, porque obtuvo la mayor frecuencia absoluta con 10 votos",
+      "explanation": "La moda es el dato con mayor frecuencia absoluta. Chocolate obtuvo 10 votos, superando a vainilla (8) y fresa (5)."
+    },
+    {
+      "id": 13,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "En el ejercicio del helado, ¿por cuántos votos supera la frecuencia absoluta de Chocolate a la de Vainilla?",
+      "context": "Votos: Chocolate = 10, Vainilla = 8.",
+      "options": [
+        "2 votos de diferencia",
+        "3 votos de diferencia",
+        "5 votos de diferencia",
+        "1 voto de diferencia"
+      ],
+      "correct_answer": "2 votos de diferencia",
+      "explanation": "La diferencia técnica se obtiene restando las frecuencias absolutas: 10 - 8 = 2 votos."
+    },
+    {
+      "id": 14,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "En la actividad 'El Tesoro de los Datos', los estudiantes sacaban lápices, borradores y sacapuntas de una bolsa sin mirar. ¿Cuál era el objetivo estadístico?",
+      "context": "Actividad: El Tesoro de los Datos (Grados de tres estudiantes con útiles escolares).",
+      "options": [
+        "Registrar los datos y realizar un conteo para saber qué útil se repitió más veces",
+        "Adivinar el peso exacto de cada borrador en gramos",
+        "Dibujar los útiles escolares en una hoja de arte",
+        "Competir a ver quién sacaba el objeto más costoso"
+      ],
+      "correct_answer": "Registrar los datos y realizar un conteo para saber qué útil se repitió más veces",
+      "explanation": "La actividad buscaba vivenciar la recolección de datos y el conteo de frecuencias absolutas para identificar el objeto más frecuente."
+    },
+    {
+      "id": 15,
+      "category": "Taller 1: Tabla de Deportes",
+      "question": "Observa la tabla de 'Preferencia de Deportes': Fútbol (12), Baloncesto (8), Natación (10). ¿Cuál es el tamaño de la población encuestada?",
+      "context": "Tabla de Preferencia de Deportes:\n• Fútbol: 12\n• Baloncesto: 8\n• Natación: 10",
+      "options": [
+        "30 personas encuestadas",
+        "28 personas encuestadas",
+        "20 personas encuestadas",
+        "35 personas encuestadas"
+      ],
+      "correct_answer": "30 personas encuestadas",
+      "explanation": "La población encuestada corresponde a la suma de las frecuencias absolutas: 12 + 8 + 10 = 30."
+    },
+    {
+      "id": 16,
+      "category": "Taller 1: Tabla de Deportes",
+      "question": "En la tabla de deportes, ¿cuál es el deporte con menor frecuencia absoluta?",
+      "context": "Tabla: Fútbol (12), Baloncesto (8), Natación (10).",
+      "options": [
+        "Baloncesto con 8 preferencias",
+        "Natación con 10 preferencias",
+        "Fútbol con 12 preferencias",
+        "Todos tienen la misma preferencia"
+      ],
+      "correct_answer": "Baloncesto con 8 preferencias",
+      "explanation": "El valor mínimo de frecuencia absoluta en la tabla es 8, que corresponde a Baloncesto."
+    },
+    {
+      "id": 17,
+      "category": "Taller 1: Tabla de Deportes",
+      "question": "En el conteo técnico de la tabla de deportes, ¿cómo se representan las 12 personas que prefieren Fútbol?",
+      "context": "Frecuencia de Fútbol = 12.",
+      "options": [
+        "Dos grupos cerrados de 5 marcas y 2 marcas sueltas (5 + 5 + 2)",
+        "Tres grupos de 4 marcas cerradas",
+        "Un solo grupo de 10 marcas continuas",
+        "Doce puntos ordenados en un círculo"
+      ],
+      "correct_answer": "Dos grupos cerrados de 5 marcas y 2 marcas sueltas (5 + 5 + 2)",
+      "explanation": "En el conteo técnico por marcas, se agrupa de 5 en 5 (cuatro palitos y una diagonal cruzada). Por tanto, 12 = 5 + 5 + 2."
+    },
+    {
+      "id": 18,
+      "category": "Taller 1: Tabla de Deportes",
+      "question": "¿Por cuántas unidades de diferencia supera la preferencia del Fútbol a la Natación?",
+      "context": "Tabla: Fútbol (12), Natación (10).",
+      "options": [
+        "2 unidades de diferencia",
+        "4 unidades de diferencia",
+        "1 unidad de diferencia",
+        "3 unidades de diferencia"
+      ],
+      "correct_answer": "2 unidades de diferencia",
+      "explanation": "Fútbol (12) - Natación (10) = 2 unidades de diferencia."
+    },
+    {
+      "id": 19,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "En el Taller 4, analiza la Tabla 1 de meriendas para 3°A: Bollo de Mazorca (12), Carimañola (6), Arepa de Huevo (8). ¿Cuál es la población total de 3°A?",
+      "context": "Tabla 1 (Grado 3°A):\n• Bollo de Mazorca: 12\n• Carimañola: 6\n• Arepa de Huevo: 8",
+      "options": [
+        "26 estudiantes",
+        "28 estudiantes",
+        "24 estudiantes",
+        "30 estudiantes"
+      ],
+      "correct_answer": "26 estudiantes",
+      "explanation": "La suma técnica de las frecuencias en 3°A es: 12 + 6 + 8 = 26 estudiantes."
+    },
+    {
+      "id": 20,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Analiza la Tabla 2 de meriendas para 3°B: Bollo de Mazorca (5), Carimañola (15), Arepa de Huevo (10). ¿Cuál es la población total de 3°B?",
+      "context": "Tabla 2 (Grado 3°B):\n• Bollo de Mazorca: 5\n• Carimañola: 15\n• Arepa de Huevo: 10",
+      "options": [
+        "30 estudiantes",
+        "26 estudiantes",
+        "35 estudiantes",
+        "25 estudiantes"
+      ],
+      "correct_answer": "30 estudiantes",
+      "explanation": "La suma técnica de las frecuencias en 3°B es: 5 + 15 + 10 = 30 estudiantes."
+    },
+    {
+      "id": 21,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "¿Cuál es la moda de merienda en el grado 3°A?",
+      "context": "Tabla 3°A: Bollo de Mazorca (12), Carimañola (6), Arepa de Huevo (8).",
+      "options": [
+        "Bollo de Mazorca con 12 votos",
+        "Carimañola con 6 votos",
+        "Arepa de Huevo con 8 votos",
+        "No hay moda en 3°A"
+      ],
+      "correct_answer": "Bollo de Mazorca con 12 votos",
+      "explanation": "En 3°A, el Bollo de Mazorca tiene la mayor frecuencia absoluta (12), por lo tanto es la moda del salón."
+    },
+    {
+      "id": 22,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "¿Cuál es la moda de merienda en el grado 3°B?",
+      "context": "Tabla 3°B: Bollo de Mazorca (5), Carimañola (15), Arepa de Huevo (10).",
+      "options": [
+        "Carimañola con 15 votos",
+        "Arepa de Huevo con 10 votos",
+        "Bollo de Mazorca con 5 votos",
+        "Carimañola y Arepa de Huevo empatadas"
+      ],
+      "correct_answer": "Carimañola con 15 votos",
+      "explanation": "En 3°B, la Carimañola obtuvo la mayor frecuencia absoluta (15 votos), siendo la moda de este salón."
+    },
+    {
+      "id": 23,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Compara la frecuencia absoluta de 'Arepa de Huevo' entre 3°A (8) y 3°B (10). ¿En cuál salón tiene mayor preferencia y por cuántas unidades?",
+      "context": "Arepa de Huevo:\n• 3°A: 8 votos\n• 3°B: 10 votos",
+      "options": [
+        "Tiene mayor preferencia en 3°B por 2 unidades de diferencia (10 - 8 = 2)",
+        "Tiene mayor preferencia en 3°A por 2 unidades de diferencia",
+        "Tienen exactamente la misma preferencia en ambos salones",
+        "Tiene mayor preferencia en 3°B por 5 unidades de diferencia"
+      ],
+      "correct_answer": "Tiene mayor preferencia en 3°B por 2 unidades de diferencia (10 - 8 = 2)",
+      "explanation": "En 3°B la frecuencia es 10 y en 3°A es 8. La mayor preferencia está en 3°B con 10 - 8 = 2 unidades de ventaja."
+    },
+    {
+      "id": 24,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Compara la merienda 'Bollo de Mazorca' entre 3°A (12) y 3°B (5). ¿Cuál salón la prefiere más y por cuántas unidades?",
+      "context": "Bollo de Mazorca:\n• 3°A: 12 votos\n• 3°B: 5 votos",
+      "options": [
+        "En 3°A por 7 unidades de diferencia (12 - 5 = 7)",
+        "En 3°B por 7 unidades de diferencia",
+        "En 3°A por 5 unidades de diferencia",
+        "En 3°B por 12 unidades de diferencia"
+      ],
+      "correct_answer": "En 3°A por 7 unidades de diferencia (12 - 5 = 7)",
+      "explanation": "En 3°A la frecuencia es 12 y en 3°B es 5. La diferencia a favor de 3°A es 12 - 5 = 7 unidades."
+    },
+    {
+      "id": 25,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Compara la merienda 'Carimañola' entre 3°A (6) y 3°B (15). ¿Cuál es la diferencia de frecuencia absoluta?",
+      "context": "Carimañola:\n• 3°A: 6 votos\n• 3°B: 15 votos",
+      "options": [
+        "9 unidades a favor de 3°B (15 - 6 = 9)",
+        "6 unidades a favor de 3°A",
+        "11 unidades a favor de 3°B",
+        "15 unidades a favor de 3°B"
+      ],
+      "correct_answer": "9 unidades a favor de 3°B (15 - 6 = 9)",
+      "explanation": "Carimañola en 3°B tiene 15 y en 3°A tiene 6. La diferencia es 15 - 6 = 9 unidades."
+    },
+    {
+      "id": 26,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "¿Cuál es la población total de estudiantes encuestados al juntar los salones 3°A y 3°B?",
+      "context": "Población 3°A = 26; Población 3°B = 30.",
+      "options": [
+        "56 estudiantes en total",
+        "50 estudiantes en total",
+        "60 estudiantes en total",
+        "48 estudiantes en total"
+      ],
+      "correct_answer": "56 estudiantes en total",
+      "explanation": "La suma total de encuestados en ambos salones es 26 + 30 = 56 estudiantes."
+    },
+    {
+      "id": 27,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Si sumamos los votos de ambos salones, ¿cuántos estudiantes prefieren en total 'Carimañola'?",
+      "context": "Carimañola: 3°A = 6, 3°B = 15.",
+      "options": [
+        "21 estudiantes",
+        "18 estudiantes",
+        "15 estudiantes",
+        "25 estudiantes"
+      ],
+      "correct_answer": "21 estudiantes",
+      "explanation": "Sumando ambas frecuencias: 6 (en 3°A) + 15 (en 3°B) = 21 estudiantes."
+    },
+    {
+      "id": 28,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Si sumamos los votos de ambos salones, ¿cuál es la merienda tradicional con mayor cantidad de votos acumulados?",
+      "context": "Totales combinados:\n• Bollo de Mazorca: 12 + 5 = 17\n• Carimañola: 6 + 15 = 21\n• Arepa de Huevo: 8 + 10 = 18",
+      "options": [
+        "Carimañola con 21 votos en total",
+        "Arepa de Huevo con 18 votos en total",
+        "Bollo de Mazorca con 17 votos en total",
+        "Hay un triple empate entre las tres opciones"
+      ],
+      "correct_answer": "Carimañola con 21 votos en total",
+      "explanation": "Al consolidar ambos cursos: Carimañola = 21, Arepa de Huevo = 18, Bollo de Mazorca = 17. La mayor es Carimañola."
+    },
+    {
+      "id": 29,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "¿Cuál de las siguientes preguntas de investigación requiere OBLIGATORIAMENTE analizar las dos tablas al mismo tiempo?",
+      "context": "Estudio comparativo de meriendas en 3°A y 3°B.",
+      "options": [
+        "¿En cuál de los dos salones hubo mayor preferencia por la Arepa de Huevo?",
+        "¿Cuántos niños encuestados hay en 3°A?",
+        "¿Cuál fue la merienda menos preferida en 3°B?",
+        "¿A qué hora salen los estudiantes a descanso?"
+      ],
+      "correct_answer": "¿En cuál de los dos salones hubo mayor preferencia por la Arepa de Huevo?",
+      "explanation": "Para comparar qué salón tuvo mayor preferencia, se necesita examinar simultáneamente los datos de la Tabla 1 (3°A) y de la Tabla 2 (3°B)."
+    },
+    {
+      "id": 30,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "La cooperativa escolar pide redactar una sugerencia técnica para la preparación de meriendas. ¿Cuál afirmación cumple con el rigor técnico exigido?",
+      "context": "Modas: 3°A = Bollo de Mazorca (12); 3°B = Carimañola (15).",
+      "options": [
+        "Para 3°A se debe priorizar el Bollo de Mazorca (moda con 12 votos) y para 3°B la Carimañola (moda con 15 votos), según su frecuencia absoluta",
+        "A los niños de 3°A les gusta mucho el bollo porque sabe rico y a los de 3°B la carimañola",
+        "Se debe hacer sólo arepas de huevo porque a la cocinera le gusta más",
+        "Ganó el bollo en un salón y la empanada en el otro salón"
+      ],
+      "correct_answer": "Para 3°A se debe priorizar el Bollo de Mazorca (moda con 12 votos) y para 3°B la Carimañola (moda con 15 votos), según su frecuencia absoluta",
+      "explanation": "El taller exige expresamente evitar expresiones infantiles o subjetivas y fundamentar las afirmaciones con términos como 'moda' y 'frecuencia absoluta'."
+    },
+    {
+      "id": 31,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "En el Taller 5 sobre los Refrescos de la Ronda del Sinú en Montería, ¿cuál fue el tamaño de la población estudiada?",
+      "context": "Tabla Ronda del Sinú:\n• Chicha de Maíz: 15\n• Agua de Coco: 25\n• Jugo de Níspero: 10\n• Guarapo con Limón: 20\n• TOTAL: 70",
+      "options": [
+        "70 personas encuestadas",
+        "50 personas encuestadas",
+        "25 personas encuestadas",
+        "100 personas encuestadas"
+      ],
+      "correct_answer": "70 personas encuestadas",
+      "explanation": "La tabla indica explícitamente en su fila de total: 15 + 25 + 10 + 20 = 70 personas."
+    },
+    {
+      "id": 32,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "En el estudio de las bebidas de la Ronda del Sinú, ¿cuál es la variable cualitativa nominal analizada?",
+      "context": "Tabla: Chicha de Maíz (15), Agua de Coco (25), Jugo de Níspero (10), Guarapo con Limón (20).",
+      "options": [
+        "Bebida refrescante tradicional preferida",
+        "Temperatura del clima en Montería",
+        "Precio por vaso de cada refresco",
+        "Cantidad de litros vendidos por día"
+      ],
+      "correct_answer": "Bebida refrescante tradicional preferida",
+      "explanation": "La variable es la bebida refrescante que las personas prefieren, clasificada por categorías de texto sin jerarquía numérica."
+    },
+    {
+      "id": 33,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "De acuerdo con la tabla de la Ronda del Sinú, ¿cuál es la categoría con MENOR preferencia?",
+      "context": "Valores: Chicha (15), Agua de Coco (25), Níspero (10), Guarapo (20).",
+      "options": [
+        "Jugo de Níspero, con una frecuencia absoluta de 10 personas",
+        "Chicha de Maíz, con una frecuencia absoluta de 15 personas",
+        "Guarapo con Limón, con una frecuencia absoluta de 20 personas",
+        "Agua de Coco, con una frecuencia absoluta de 25 personas"
+      ],
+      "correct_answer": "Jugo de Níspero, con una frecuencia absoluta de 10 personas",
+      "explanation": "El Jugo de Níspero registró la menor frecuencia absoluta del estudio con 10 personas."
+    },
+    {
+      "id": 34,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "¿Cuál es la MODA en el estudio de las bebidas de la Ronda del Sinú y por qué razón técnica?",
+      "context": "Tabla: Chicha (15), Coco (25), Níspero (10), Guarapo (20).",
+      "options": [
+        "Agua de Coco, porque registra la mayor frecuencia absoluta con 25 votos",
+        "Guarapo con Limón, porque está en el último renglón de la tabla",
+        "Chicha de Maíz, porque es la bebida más antigua",
+        "Jugo de Níspero, porque obtuvo 10 votos exactos"
+      ],
+      "correct_answer": "Agua de Coco, porque registra la mayor frecuencia absoluta con 25 votos",
+      "explanation": "La moda estadística es el valor con mayor frecuencia absoluta; en esta tabla corresponde a Agua de Coco con 25 personas."
+    },
+    {
+      "id": 35,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "¿Por cuántas personas supera el Agua de Coco (25) al Jugo de Níspero (10)?",
+      "context": "Frecuencias: Agua de Coco = 25, Jugo de Níspero = 10.",
+      "options": [
+        "Por 15 personas (25 - 10 = 15)",
+        "Por 10 personas",
+        "Por 20 personas",
+        "Por 5 personas"
+      ],
+      "correct_answer": "Por 15 personas (25 - 10 = 15)",
+      "explanation": "Restando la menor frecuencia de la mayor frecuencia: 25 - 10 = 15 personas de diferencia."
+    },
+    {
+      "id": 36,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "En la tabla de bebidas, ¿cuál es la frecuencia absoluta de personas que prefieren Guarapo con Limón?",
+      "context": "Tabla: Chicha (15), Coco (25), Níspero (10), Guarapo (20).",
+      "options": [
+        "20 personas",
+        "25 personas",
+        "15 personas",
+        "70 personas"
+      ],
+      "correct_answer": "20 personas",
+      "explanation": "La casilla correspondiente al Guarapo con Limón indica directamente una frecuencia absoluta de 20 personas."
+    },
+    {
+      "id": 37,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "¿Cuántas personas en total prefieren entre Chicha de Maíz y Guarapo con Limón?",
+      "context": "Chicha de Maíz = 15; Guarapo con Limón = 20.",
+      "options": [
+        "35 personas (15 + 20 = 35)",
+        "40 personas",
+        "25 personas",
+        "30 personas"
+      ],
+      "correct_answer": "35 personas (15 + 20 = 35)",
+      "explanation": "La suma combinada de ambas preferencias es 15 + 20 = 35 personas."
+    },
+    {
+      "id": 38,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "De acuerdo con el taller de escritura científica, ¿cuál de las siguientes es una conclusión formal adecuada sobre la moda?",
+      "context": "Directriz del taller: Usar terminología técnica (moda, frecuencia absoluta) y evitar opiniones personales.",
+      "options": [
+        "La moda de la muestra corresponde al Agua de Coco al alcanzar la máxima frecuencia absoluta con 25 preferencias",
+        "El agua de coco es la bebida más rica y sabrosa de todo el parque",
+        "Ganó el coco por goleada sobre las demás bebidas",
+        "A la gente le encanta el coco porque hace mucho calor en Montería"
+      ],
+      "correct_answer": "La moda de la muestra corresponde al Agua de Coco al alcanzar la máxima frecuencia absoluta con 25 preferencias",
+      "explanation": "Una conclusión estadística científica debe ser objetiva, sustentarse en datos numéricos y emplear el vocabulario técnico requerido."
+    },
+    {
+      "id": 39,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "¿Por qué expresiones como 'el coco es muy rico' o 'ganó el agua' NO son válidas en un informe estadístico escolar formal?",
+      "context": "Criterios SIEE y directrices institucionales.",
+      "options": [
+        "Porque son apreciaciones subjetivas e informales que carecen de rigor técnico y sustento numérico",
+        "Porque el agua de coco no es una fruta permitida en la escuela",
+        "Porque sólo se permite escribir números y no palabras",
+        "Porque los vendedores del parque no leen informes"
+      ],
+      "correct_answer": "Porque son apreciaciones subjetivas e informales que carecen de rigor técnico y sustento numérico",
+      "explanation": "El taller prohíbe explícitamente el vocabulario infantil o subjetivo, exigiendo fundamentar las afirmaciones con términos estadísticos formales."
+    },
+    {
+      "id": 40,
+      "category": "Taller 5: Redacción de Conclusiones",
+      "question": "Si los vendedores de la Ronda del Sinú deben decidir qué bebida surtir en mayor cantidad el fin de semana, ¿qué recomendación estadística deben seguir?",
+      "context": "Moda: Agua de Coco con 25 preferencias sobre una población de 70 personas.",
+      "options": [
+        "Abastecer principalmente Agua de Coco por ser la moda estadística con la mayor frecuencia absoluta (25 votos)",
+        "Comprar solo Jugo de Níspero para obligar a la gente a probarlo",
+        "No preparar ninguna bebida tradicional y vender únicamente gaseosas",
+        "Repartir la misma cantidad exacta de todos sin tener en cuenta la tabla"
+      ],
+      "correct_answer": "Abastecer principalmente Agua de Coco por ser la moda estadística con la mayor frecuencia absoluta (25 votos)",
+      "explanation": "La toma de decisiones informada por datos estadísticos aprovecha la moda y frecuencias observadas para satisfacer la mayor demanda."
+    },
+    {
+      "id": 41,
+      "category": "Taller 1: Recolección y Tabulación",
+      "question": "¿Cuál es la diferencia entre una variable cualitativa y una cuantitativa?",
+      "context": null,
+      "options": [
+        "La cualitativa expresa características o cualidades (palabras), mientras que la cuantitativa expresa cantidades medibles numéricamente",
+        "La cualitativa solo se usa en deportes y la cuantitativa solo en comidas",
+        "Son exactamente lo mismo con dos nombres diferentes",
+        "La cualitativa siempre da un resultado de cero"
+      ],
+      "correct_answer": "La cualitativa expresa características o cualidades (palabras), mientras que la cuantitativa expresa cantidades medibles numéricamente",
+      "explanation": "Las variables cualitativas representan cualidades o categorías descriptivas, mientras que las cuantitativas representan valores numéricos de conteo o medición."
+    },
+    {
+      "id": 42,
+      "category": "Taller 4: Comparación de Tablas",
+      "question": "Al comparar los salones 3°A (26 estudiantes) y 3°B (30 estudiantes), ¿cuál salón tuvo mayor cantidad de participantes en la encuesta?",
+      "context": "3°A: 26 encuestados; 3°B: 30 encuestados.",
+      "options": [
+        "El grado 3°B con 4 estudiantes más que 3°A (30 - 26 = 4)",
+        "El grado 3°A con 4 estudiantes más que 3°B",
+        "Ambos salones tuvieron exactamente la misma cantidad",
+        "El grado 3°A con 10 estudiantes más"
+      ],
+      "correct_answer": "El grado 3°B con 4 estudiantes más que 3°A (30 - 26 = 4)",
+      "explanation": "Comparando las poblaciones totales: 30 (de 3°B) - 26 (de 3°A) = 4 estudiantes más a favor de 3°B."
+    }
+  ]
+}
