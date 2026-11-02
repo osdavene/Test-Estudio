@@ -5,52 +5,52 @@
 {% block content %}
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <!-- TARJETA PRINCIPAL DE PUNTAJE Y DESEMPEÑO -->
-    <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -z-10 -mr-20 -mt-20"></div>
+    <!-- TARJETA PRINCIPAL DE PUNTAJE Y DESEMPEÑO DARK -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl -z-10 -mr-20 -mt-20 pointer-events-none"></div>
 
         <div class="flex flex-col md:flex-row items-center justify-between gap-8">
             
-            <!-- Círculo de Calificación y Porcentaje -->
+            <!-- Círculo de Calificación y Porcentaje Dark -->
             <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                <div class="relative w-28 h-28 flex-shrink-0 flex items-center justify-center rounded-full 
-                    {% if results.percentage >= 90 %}bg-emerald-50 text-emerald-600 border-4 border-emerald-500
-                    {% elif results.percentage >= 70 %}bg-blue-50 text-blue-600 border-4 border-blue-500
-                    {% elif results.percentage >= 60 %}bg-amber-50 text-amber-600 border-4 border-amber-500
-                    {% else %}bg-rose-50 text-rose-600 border-4 border-rose-500{% endif %}">
+                <div class="relative w-28 h-28 flex-shrink-0 flex items-center justify-center rounded-full shadow-2xl 
+                    {% if results.percentage >= 90 %}bg-emerald-950/60 text-emerald-400 border-4 border-emerald-500 shadow-emerald-500/20
+                    {% elif results.percentage >= 70 %}bg-blue-950/60 text-blue-400 border-4 border-blue-500 shadow-blue-500/20
+                    {% elif results.percentage >= 60 %}bg-amber-950/60 text-amber-400 border-4 border-amber-500 shadow-amber-500/20
+                    {% else %}bg-rose-950/60 text-rose-400 border-4 border-rose-500 shadow-rose-500/20{% endif %}">
                     <div class="text-center">
-                        <span class="text-3xl font-black leading-none">{{ results.percentage }}%</span>
-                        <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">
+                        <span class="text-3xl font-black leading-none text-white">{{ results.percentage }}%</span>
+                        <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">
                             {{ results.correct_count }}/{{ results.total_questions }}
                         </span>
                     </div>
                 </div>
 
                 <div class="space-y-1.5">
-                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-white {{ results.performance_badge }}">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm {{ results.performance_badge }}">
                         {{ results.performance_label }}
                     </span>
-                    <h1 class="text-2xl font-black text-slate-900">
+                    <h1 class="text-2xl font-black text-white">
                         {{ results.subject_name }}
                     </h1>
-                    <p class="text-xs text-slate-500 font-medium">
+                    <p class="text-xs text-slate-400 font-medium">
                         {{ results.grade }} &bull; {{ results.institution }}
                     </p>
-                    <p class="text-xs text-slate-600 max-w-md pt-1 leading-relaxed">
+                    <p class="text-xs text-slate-300 max-w-md pt-1 leading-relaxed">
                         {{ results.feedback_message }}
                     </p>
                 </div>
             </div>
 
-            <!-- Botones de Acción Rápida -->
+            <!-- Botones de Acción Rápida Dark -->
             <div class="flex flex-col sm:flex-row md:flex-col gap-2.5 w-full md:w-auto">
                 <a href="/exam/{{ session.subject_id }}?count={{ results.total_questions }}&timer={{ session.time_limit_minutes }}" 
-                   class="py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md shadow-emerald-600/20 text-center flex items-center justify-center gap-2 transition-all">
+                   class="py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 text-center flex items-center justify-center gap-2 transition-all active:scale-95">
                     <i class="fa-solid fa-rotate-right"></i>
-                    <span>Presentar Nuevo Examen (Aleatorio)</span>
+                    <span>Nuevo Examen (Aleatorio)</span>
                 </a>
                 <a href="/" 
-                   class="py-2.5 px-5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-xs text-center flex items-center justify-center gap-2 transition-all">
+                   class="py-2.5 px-5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs text-center flex items-center justify-center gap-2 transition-all">
                     <i class="fa-solid fa-house"></i>
                     <span>Volver a Materias</span>
                 </a>
@@ -58,49 +58,49 @@
 
         </div>
 
-        <!-- Métricas Rápidas en Cuadrícula -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-slate-100">
-            <div class="bg-emerald-50/70 border border-emerald-100 rounded-xl p-3.5 text-center">
-                <span class="block text-[11px] font-bold text-emerald-800 uppercase">Correctas</span>
-                <span class="text-xl font-black text-emerald-600">{{ results.correct_count }}</span>
+        <!-- Métricas Rápidas en Cuadrícula Dark -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-slate-800">
+            <div class="bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-3.5 text-center">
+                <span class="block text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Correctas</span>
+                <span class="text-xl font-black text-emerald-300">{{ results.correct_count }}</span>
             </div>
-            <div class="bg-rose-50/70 border border-rose-100 rounded-xl p-3.5 text-center">
-                <span class="block text-[11px] font-bold text-rose-800 uppercase">Incorrectas</span>
-                <span class="text-xl font-black text-rose-600">{{ results.incorrect_count }}</span>
+            <div class="bg-rose-950/30 border border-rose-500/30 rounded-2xl p-3.5 text-center">
+                <span class="block text-[11px] font-bold text-rose-400 uppercase tracking-wider">Incorrectas</span>
+                <span class="text-xl font-black text-rose-300">{{ results.incorrect_count }}</span>
             </div>
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center">
-                <span class="block text-[11px] font-bold text-slate-600 uppercase">Sin Responder</span>
-                <span class="text-xl font-black text-slate-700">{{ results.unanswered_count }}</span>
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-center">
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Sin Responder</span>
+                <span class="text-xl font-black text-slate-300">{{ results.unanswered_count }}</span>
             </div>
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center">
-                <span class="block text-[11px] font-bold text-slate-600 uppercase">Tiempo Total</span>
-                <span class="text-xl font-black text-slate-700 font-mono">{{ results.time_formatted }}</span>
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-center">
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Tiempo Total</span>
+                <span class="text-xl font-black text-slate-200 font-mono">{{ results.time_formatted }}</span>
             </div>
         </div>
 
     </div>
 
-    <!-- DESGLOSE POR TEMA / TALLER -->
-    <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
-        <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-            <i class="fa-solid fa-chart-column text-emerald-600"></i>
+    <!-- DESGLOSE POR TEMA / TALLER DARK -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
+        <h2 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-chart-column text-emerald-400"></i>
             <span>Rendimiento por Tema Evaluado</span>
         </h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {% for cat_name, stats in results.category_stats.items() %}
             {% set cat_pct = (stats.correct / stats.total * 100) | round | int if stats.total > 0 else 0 %}
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
-                <div class="flex items-center justify-between text-xs font-bold text-slate-800">
-                    <span class="truncate pr-2" title="{{ cat_name }}">{{ cat_name }}</span>
-                    <span class="{% if cat_pct >= 80 %}text-emerald-600{% elif cat_pct >= 60 %}text-amber-600{% else %}text-rose-600{% endif %}">
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-2.5">
+                <div class="flex items-center justify-between text-xs font-bold">
+                    <span class="truncate pr-2 text-slate-200" title="{{ cat_name }}">{{ cat_name }}</span>
+                    <span class="{% if cat_pct >= 80 %}text-emerald-400{% elif cat_pct >= 60 %}text-amber-400{% else %}text-rose-400{% endif %}">
                         {{ stats.correct }}/{{ stats.total }}
                     </span>
                 </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
                     <div class="h-full {% if cat_pct >= 80 %}bg-emerald-500{% elif cat_pct >= 60 %}bg-amber-500{% else %}bg-rose-500{% endif %}" style="width: {{ cat_pct }}%"></div>
                 </div>
-                <div class="text-[10px] text-slate-500 text-right font-medium">
+                <div class="text-[10px] text-slate-400 text-right font-medium">
                     {{ cat_pct }}% de acierto
                 </div>
             </div>
@@ -108,35 +108,35 @@
         </div>
     </div>
 
-    <!-- REVISIÓN DETALLADA PREGUNTA POR PREGUNTA -->
+    <!-- REVISIÓN DETALLADA PREGUNTA POR PREGUNTA DARK -->
     <div class="space-y-4">
         <div class="flex items-center justify-between">
-            <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-list-check text-emerald-600"></i>
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-emerald-400"></i>
                 <span>Revisión Detallada de Preguntas</span>
             </h2>
-            <span class="text-xs text-slate-500">
-                Pasa el cursor o examina las explicaciones
+            <span class="text-xs text-slate-400">
+                Soluciones y explicaciones pedagógicas
             </span>
         </div>
 
         <div class="space-y-4">
             {% for item in results.review %}
-            <div class="bg-white rounded-2xl border p-5 sm:p-6 shadow-sm space-y-4 
-                {% if item.is_correct %}border-emerald-200 bg-emerald-50/10
-                {% elif item.is_unanswered %}border-slate-200
-                {% else %}border-rose-200 bg-rose-50/10{% endif %}">
+            <div class="bg-slate-900 border rounded-3xl p-5 sm:p-7 shadow-xl space-y-4 
+                {% if item.is_correct %}border-emerald-500/40 bg-slate-900
+                {% elif item.is_unanswered %}border-slate-800 bg-slate-900
+                {% else %}border-rose-500/40 bg-slate-900{% endif %}">
                 
                 <!-- Encabezado de Pregunta -->
-                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-slate-800">
                     <div class="flex items-center gap-2">
-                        <span class="w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center 
-                            {% if item.is_correct %}bg-emerald-100 text-emerald-700
-                            {% elif item.is_unanswered %}bg-slate-100 text-slate-600
-                            {% else %}bg-rose-100 text-rose-700{% endif %}">
+                        <span class="w-7 h-7 rounded-lg text-xs font-black flex items-center justify-center 
+                            {% if item.is_correct %}bg-emerald-500/20 text-emerald-300 border border-emerald-500/30
+                            {% elif item.is_unanswered %}bg-slate-800 text-slate-400 border border-slate-700
+                            {% else %}bg-rose-500/20 text-rose-300 border border-rose-500/30{% endif %}">
                             #{{ item.order }}
                         </span>
-                        <span class="text-xs font-bold text-slate-700">
+                        <span class="text-xs font-bold text-slate-300">
                             {{ item.category }}
                         </span>
                     </div>
@@ -144,15 +144,15 @@
                     <!-- Estado -->
                     <div>
                         {% if item.is_correct %}
-                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                             <i class="fa-solid fa-check text-[10px]"></i> Correcta
                         </span>
                         {% elif item.is_unanswered %}
-                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-slate-100 text-slate-600">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-800 text-slate-400 border border-slate-700">
                             <i class="fa-solid fa-minus text-[10px]"></i> Sin responder
                         </span>
                         {% else %}
-                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
                             <i class="fa-solid fa-xmark text-[10px]"></i> Incorrecta
                         </span>
                         {% endif %}
@@ -161,61 +161,61 @@
 
                 <!-- Contexto si existe -->
                 {% if item.context %}
-                <div class="bg-amber-50/60 border border-amber-200/80 rounded-xl p-3 text-xs text-amber-900 font-medium whitespace-pre-line">
-                    <span class="font-bold block text-amber-800 mb-0.5"><i class="fa-solid fa-circle-info mr-1"></i> Datos de Referencia:</span>
+                <div class="bg-slate-950 border-l-4 border-l-emerald-500 border-y border-r border-slate-800 rounded-2xl p-4 text-xs text-slate-200 font-medium whitespace-pre-line leading-relaxed shadow-inner">
+                    <span class="font-bold block text-emerald-400 mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Datos de Referencia:</span>
                     {{ item.context }}
                 </div>
                 {% endif %}
 
                 <!-- Texto de Pregunta -->
-                <p class="text-sm sm:text-base font-bold text-slate-900">
+                <p class="text-sm sm:text-base font-bold text-white leading-relaxed">
                     {{ item.question }}
                 </p>
 
-                <!-- Opciones Evaluadas -->
-                <div class="space-y-2 pt-1 text-xs">
+                <!-- Opciones Evaluadas Dark -->
+                <div class="space-y-2.5 pt-1 text-xs">
                     {% for opt in item.options %}
                     {% set is_user_pick = (item.selected_option == opt) %}
                     {% set is_correct_opt = (item.correct_option == opt) %}
 
-                    <div class="p-3 rounded-xl border flex items-start gap-3 
+                    <div class="p-3.5 rounded-2xl border flex items-start gap-3 transition-colors 
                         {% if is_correct_opt %}
-                            bg-emerald-50 border-emerald-300 text-emerald-950 font-semibold
+                            bg-emerald-950/40 border-emerald-500/60 text-emerald-100 font-semibold shadow-sm
                         {% elif is_user_pick and not item.is_correct %}
-                            bg-rose-50 border-rose-300 text-rose-950 font-medium
+                            bg-rose-950/40 border-rose-500/60 text-rose-100 font-medium
                         {% else %}
-                            bg-slate-50/60 border-slate-200 text-slate-600
+                            bg-slate-950/60 border-slate-800/80 text-slate-400
                         {% endif %}">
                         
-                        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold flex-shrink-0 mt-0.5
-                            {% if is_correct_opt %}bg-emerald-600 text-white
-                            {% elif is_user_pick and not item.is_correct %}bg-rose-600 text-white
-                            {% else %}bg-slate-200 text-slate-600{% endif %}">
+                        <span class="w-5 h-5 rounded-md flex items-center justify-center text-[11px] font-black flex-shrink-0 mt-0.5
+                            {% if is_correct_opt %}bg-emerald-600 text-white shadow-sm shadow-emerald-600/40
+                            {% elif is_user_pick and not item.is_correct %}bg-rose-600 text-white shadow-sm shadow-rose-600/40
+                            {% else %}bg-slate-800 text-slate-400{% endif %}">
                             {% if is_correct_opt %}&check;{% elif is_user_pick %}&cross;{% else %}•{% endif %}
                         </span>
 
-                        <div class="flex-1">
+                        <div class="flex-1 leading-relaxed">
                             <span>{{ opt }}</span>
                             {% if is_user_pick and not item.is_correct %}
-                            <span class="block text-[10px] font-bold text-rose-700 mt-0.5">(Tu respuesta seleccionada)</span>
+                            <span class="block text-[10px] font-bold text-rose-400 mt-0.5">(Tu respuesta seleccionada)</span>
                             {% elif is_user_pick and item.is_correct %}
-                            <span class="block text-[10px] font-bold text-emerald-700 mt-0.5">(¡Tu respuesta correcta!)</span>
+                            <span class="block text-[10px] font-bold text-emerald-400 mt-0.5">(¡Tu respuesta correcta!)</span>
                             {% elif is_correct_opt and not item.is_correct %}
-                            <span class="block text-[10px] font-bold text-emerald-700 mt-0.5">(Respuesta correcta)</span>
+                            <span class="block text-[10px] font-bold text-emerald-400 mt-0.5">(Respuesta correcta esperada)</span>
                             {% endif %}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
 
-                <!-- Explicación Pedagógica -->
+                <!-- Explicación Pedagógica Dark -->
                 {% if item.explanation %}
-                <div class="bg-blue-50/80 border border-blue-200 rounded-xl p-3.5 text-xs text-blue-900 space-y-1">
-                    <span class="font-bold flex items-center gap-1.5 text-blue-800">
-                        <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-xs text-slate-300 space-y-1.5 shadow-inner">
+                    <span class="font-bold flex items-center gap-1.5 text-amber-400">
+                        <i class="fa-solid fa-lightbulb"></i>
                         <span>Explicación del ejercicio:</span>
                     </span>
-                    <p class="text-slate-700 leading-relaxed pl-5">
+                    <p class="text-slate-300 leading-relaxed pl-5">
                         {{ item.explanation }}
                     </p>
                 </div>
@@ -226,10 +226,10 @@
         </div>
     </div>
 
-    <!-- Barra Inferior de Acción -->
+    <!-- Barra Inferior de Acción Dark -->
     <div class="text-center pt-6 pb-12">
         <a href="/exam/{{ session.subject_id }}?count={{ results.total_questions }}&timer={{ session.time_limit_minutes }}" 
-           class="inline-flex items-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95">
+           class="inline-flex items-center gap-2 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-xl shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95">
             <i class="fa-solid fa-shuffle"></i>
             <span>Intentar Otro Examen con Nuevas Preguntas Aleatorias</span>
         </a>

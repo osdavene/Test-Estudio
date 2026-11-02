@@ -5,13 +5,17 @@
 {% block head %}
 <style>
     .radio-card input[type="radio"]:checked + div {
-        border-color: #059669;
-        background-color: #ecfdf5;
-        box-shadow: 0 0 0 1px #059669;
+        border-color: #10b981;
+        background-color: rgba(6, 78, 59, 0.35);
+        box-shadow: 0 0 0 1px #10b981;
     }
     .radio-card input[type="radio"]:checked + div .opt-badge {
         background-color: #059669;
-        color: white;
+        color: #ffffff;
+        box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4);
+    }
+    .radio-card input[type="radio"]:checked + div .opt-text {
+        color: #ffffff;
     }
 </style>
 {% endblock %}
@@ -19,25 +23,25 @@
 {% block content %}
 <div class="min-h-[calc(100vh-8rem)] flex flex-col justify-between">
 
-    <!-- BARRA SUPERIOR FIJA DE CONTROL DEL EXAMEN -->
-    <div class="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <!-- BARRA SUPERIOR FIJA DARK DE CONTROL DEL EXAMEN -->
+    <div class="bg-slate-900/95 border-b border-slate-800/90 sticky top-16 z-30 shadow-2xl backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
             <div class="flex items-center justify-between gap-4">
                 
                 <!-- Identificación del Examen -->
                 <div class="flex items-center gap-3">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <div>
                         <div class="flex items-center gap-2">
-                            <h1 class="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                            <h1 class="text-xs sm:text-sm font-extrabold text-white leading-tight">
                                 {{ session.subject_name }}
                             </h1>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                                 {{ session.grade }}
                             </span>
                         </div>
-                        <p class="text-[11px] text-slate-500 hidden sm:block">
-                            Preguntas aleatorias y respuestas dinámicas
+                        <p class="text-[11px] text-slate-400 hidden sm:block">
+                            Preguntas aleatorias &bull; Opciones barajadas
                         </p>
                     </div>
                 </div>
@@ -48,35 +52,35 @@
                     <!-- Progreso en número -->
                     <div class="text-right hidden sm:block">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block -mb-0.5">Progreso</span>
-                        <span class="text-xs font-bold text-slate-800">
-                            <span id="answeredCount" class="text-emerald-600 font-extrabold">0</span> / {{ total_questions }}
+                        <span class="text-xs font-bold text-slate-200 font-mono">
+                            <span id="answeredCount" class="text-emerald-400 font-black">0</span> / {{ total_questions }}
                         </span>
                     </div>
 
-                    <!-- Temporizador -->
+                    <!-- Temporizador Dark -->
                     {% if timer_minutes > 0 %}
-                    <div id="timerContainer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 text-slate-100 text-xs font-mono font-bold shadow-inner">
-                        <i class="fa-regular fa-clock text-amber-400"></i>
-                        <span id="timerDisplay">--:--</span>
+                    <div id="timerContainer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-xs font-mono font-black shadow-inner">
+                        <i class="fa-regular fa-clock text-amber-400 animate-pulse"></i>
+                        <span id="timerDisplay" class="text-amber-300">--:--</span>
                     </div>
                     {% else %}
-                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-semibold">
-                        <i class="fa-solid fa-infinity text-emerald-600"></i>
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 text-xs font-semibold">
+                        <i class="fa-solid fa-infinity text-emerald-400"></i>
                         <span>Práctica Libre</span>
                     </div>
                     {% endif %}
 
                     <!-- Botón Enviar / Finalizar -->
-                    <button type="button" onclick="openConfirmModal()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm shadow-emerald-600/30 transition-all flex items-center gap-1.5">
+                    <button type="button" onclick="openConfirmModal()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition-all flex items-center gap-1.5 active:scale-95">
                         <i class="fa-solid fa-flag-checkered text-[11px]"></i>
                         <span>Finalizar</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Barra de Progreso Visual -->
-            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-2.5">
-                <div id="progressBar" class="bg-emerald-500 h-full transition-all duration-300 w-0"></div>
+            <!-- Barra de Progreso Visual Dark -->
+            <div class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden mt-2.5">
+                <div id="progressBar" class="bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 h-full transition-all duration-300 w-0"></div>
             </div>
         </div>
     </div>
@@ -91,42 +95,42 @@
             <div class="lg:col-span-3 space-y-4">
 
                 {% for q in questions %}
-                <div id="q-card-{{ q.order }}" class="question-pane bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 {% if q.order != 1 %}hidden{% endif %}">
+                <div id="q-card-{{ q.order }}" class="question-pane bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 {% if q.order != 1 %}hidden{% endif %}">
                     
                     <!-- Encabezado de la Pregunta -->
-                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-800">
                         <div class="flex items-center gap-2">
-                            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 font-extrabold flex items-center justify-center text-sm border border-emerald-200">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 font-black flex items-center justify-center text-xs border border-emerald-500/30 shadow-inner">
                                 #{{ q.order }}
                             </span>
-                            <span class="text-xs font-bold text-slate-500">
+                            <span class="text-xs font-bold text-slate-300">
                                 Pregunta {{ q.order }} de {{ total_questions }}
                             </span>
                         </div>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800">
                             {{ q.category }}
                         </span>
                     </div>
 
-                    <!-- Contexto Informativo / Tabla de Datos si existe -->
+                    <!-- Contexto Informativo / Tabla de Datos Dark -->
                     {% if q.context %}
-                    <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 space-y-1">
-                        <div class="font-bold flex items-center gap-1.5 text-amber-800">
+                    <div class="bg-slate-950/90 border-l-4 border-l-emerald-500 border-y border-r border-slate-800 rounded-2xl p-4 text-xs text-slate-200 shadow-inner space-y-1.5">
+                        <div class="font-bold flex items-center gap-1.5 text-emerald-400">
                             <i class="fa-solid fa-table-list"></i>
-                            <span>Información del Ejercicio:</span>
+                            <span>Datos del Ejercicio:</span>
                         </div>
-                        <div class="font-medium whitespace-pre-line text-slate-700 mt-1 pl-1">
+                        <div class="font-medium whitespace-pre-line text-slate-300 pl-1 leading-relaxed">
                             {{ q.context }}
                         </div>
                     </div>
                     {% endif %}
 
                     <!-- Texto de la Pregunta -->
-                    <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    <h2 class="text-base sm:text-lg font-black text-white leading-snug">
                         {{ q.question }}
                     </h2>
 
-                    <!-- Opciones de Respuesta -->
+                    <!-- Opciones de Respuesta Dark -->
                     <div class="space-y-3 pt-2">
                         {% for opt in q.options %}
                         <label class="radio-card block cursor-pointer select-none">
@@ -135,11 +139,11 @@
                                    value="{{ opt }}" 
                                    class="hidden" 
                                    onchange="onSelectAnswer({{ q.order }})">
-                            <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 transition-all flex items-start gap-3.5 bg-white">
-                                <span class="opt-badge w-6 h-6 rounded-md bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors">
+                            <div class="border border-slate-800/90 hover:border-slate-700 bg-slate-950/70 hover:bg-slate-950 rounded-2xl p-4 transition-all flex items-start gap-3.5 shadow-sm">
+                                <span class="opt-badge w-7 h-7 rounded-xl bg-slate-800 text-slate-300 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-700/60 transition-colors">
                                     {% if loop.index == 1 %}A{% elif loop.index == 2 %}B{% elif loop.index == 3 %}C{% else %}D{% endif %}
                                 </span>
-                                <span class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                                <span class="opt-text text-xs sm:text-sm text-slate-300 font-medium leading-relaxed pt-0.5 transition-colors">
                                     {{ opt }}
                                 </span>
                             </div>
@@ -148,10 +152,10 @@
                     </div>
 
                     <!-- Navegación Inferior (Anterior / Siguiente) -->
-                    <div class="flex items-center justify-between pt-6 border-t border-slate-100">
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-800">
                         <button type="button" 
                                 onclick="goToQuestion({{ q.order - 1 }})" 
-                                class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50 transition-colors flex items-center gap-1.5 {% if q.order == 1 %}invisible{% endif %}">
+                                class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold border border-slate-700/60 transition-colors flex items-center gap-1.5 {% if q.order == 1 %}invisible{% endif %}">
                             <i class="fa-solid fa-arrow-left"></i>
                             <span>Anterior</span>
                         </button>
@@ -159,14 +163,14 @@
                         {% if q.order < total_questions %}
                         <button type="button" 
                                 onclick="goToQuestion({{ q.order + 1 }})" 
-                                class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+                                class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700/80 transition-colors flex items-center gap-1.5 shadow-md">
                             <span>Siguiente</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         {% else %}
                         <button type="button" 
                                 onclick="openConfirmModal()" 
-                                class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-md shadow-emerald-600/20">
+                                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-colors flex items-center gap-1.5 shadow-lg shadow-emerald-600/30">
                             <i class="fa-solid fa-check"></i>
                             <span>Revisar y Calificar</span>
                         </button>
@@ -178,57 +182,57 @@
 
             </div>
 
-            <!-- PANEL LATERAL: NAVEGADOR DE PREGUNTAS -->
+            <!-- PANEL LATERAL: NAVEGADOR DE PREGUNTAS DARK -->
             <div class="lg:col-span-1 space-y-4">
-                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm sticky top-36">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-                            <i class="fa-solid fa-grid-2 text-emerald-600"></i>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl sticky top-36">
+                    <div class="flex items-center justify-between mb-3.5 pb-3 border-b border-slate-800">
+                        <h3 class="text-xs font-black text-white uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-table-cells text-emerald-400"></i>
                             <span>Navegador</span>
                         </h3>
-                        <span class="text-[11px] text-slate-500">
-                            Total: <strong>{{ total_questions }}</strong>
+                        <span class="text-[11px] text-slate-400">
+                            Total: <strong class="text-white">{{ total_questions }}</strong>
                         </span>
                     </div>
 
-                    <!-- Cuadrícula de Burbujas de Preguntas -->
+                    <!-- Cuadrícula de Burbujas de Preguntas Dark -->
                     <div class="grid grid-cols-5 gap-2 pt-1">
                         {% for q in questions %}
                         <button type="button" 
                                 id="nav-btn-{{ q.order }}" 
                                 onclick="goToQuestion({{ q.order }})" 
-                                class="h-9 w-full rounded-lg font-bold text-xs flex items-center justify-center transition-all border
+                                class="h-9 w-full rounded-xl font-black text-xs flex items-center justify-center transition-all border
                                 {% if q.order == 1 %}
-                                ring-2 ring-emerald-500 border-emerald-500 bg-white text-emerald-700
+                                ring-2 ring-emerald-400 border-emerald-500 bg-slate-800 text-emerald-300
                                 {% else %}
-                                border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100
+                                border-slate-800 bg-slate-950 text-slate-400 hover:bg-slate-800 hover:text-white
                                 {% endif %}">
                             {{ q.order }}
                         </button>
                         {% endfor %}
                     </div>
 
-                    <!-- Leyenda de Estados -->
-                    <div class="mt-5 pt-4 border-t border-slate-100 space-y-2 text-[11px] text-slate-500">
+                    <!-- Leyenda de Estados Dark -->
+                    <div class="mt-5 pt-4 border-t border-slate-800 space-y-2 text-[11px] text-slate-400">
                         <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded bg-emerald-600 inline-block"></span>
+                            <span class="w-3.5 h-3.5 rounded-md bg-emerald-600 border border-emerald-500 inline-block"></span>
                             <span>Respondida</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded bg-slate-50 border border-slate-200 inline-block"></span>
+                            <span class="w-3.5 h-3.5 rounded-md bg-slate-950 border border-slate-800 inline-block"></span>
                             <span>Sin responder</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded bg-white border-2 border-emerald-500 inline-block"></span>
+                            <span class="w-3.5 h-3.5 rounded-md bg-slate-800 border-2 border-emerald-400 inline-block"></span>
                             <span>Pregunta actual</span>
                         </div>
                     </div>
 
                     <!-- Botón Enviar en Panel Lateral -->
-                    <div class="pt-4 mt-4 border-t border-slate-100">
+                    <div class="pt-4 mt-4 border-t border-slate-800">
                         <button type="button" 
                                 onclick="openConfirmModal()" 
-                                class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all flex items-center justify-center gap-2">
+                                class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-flag-checkered"></i>
                             <span>Finalizar Examen</span>
                         </button>
@@ -241,30 +245,30 @@
     </form>
 </div>
 
-<!-- MODAL DE CONFIRMACIÓN DE ENVÍO -->
-<div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-in fade-in duration-200">
-        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mx-auto">
+<!-- MODAL DE CONFIRMACIÓN DE ENVÍO DARK -->
+<div id="confirmModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-in fade-in duration-200">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-xl mx-auto">
             <i class="fa-solid fa-clipboard-question"></i>
         </div>
         
-        <div class="text-center space-y-1">
-            <h3 class="text-lg font-bold text-slate-900">¿Deseas finalizar el examen?</h3>
-            <p id="modalAnswerSummary" class="text-xs text-slate-600 leading-relaxed">
+        <div class="text-center space-y-1.5">
+            <h3 class="text-lg font-bold text-white">¿Deseas finalizar el examen?</h3>
+            <p id="modalAnswerSummary" class="text-xs text-slate-400 leading-relaxed">
                 Has respondido 0 de {{ total_questions }} preguntas.
             </p>
         </div>
 
-        <div id="modalWarning" class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 text-center font-medium hidden">
+        <div id="modalWarning" class="bg-amber-950/40 border border-amber-500/40 rounded-2xl p-3 text-xs text-amber-300 text-center font-medium hidden">
             <i class="fa-solid fa-triangle-exclamation mr-1"></i>
             Tienes preguntas sin responder. Las no contestadas contarán como cero.
         </div>
 
         <div class="grid grid-cols-2 gap-3 pt-2">
-            <button type="button" onclick="closeConfirmModal()" class="py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-50 transition-colors">
+            <button type="button" onclick="closeConfirmModal()" class="py-2.5 px-4 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-colors">
                 Seguir respondiendo
             </button>
-            <button type="button" onclick="submitExamNow()" class="py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-colors">
+            <button type="button" onclick="submitExamNow()" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition-colors">
                 Sí, calificar ahora
             </button>
         </div>
@@ -318,7 +322,7 @@
         document.getElementById('progressBar').style.width = `${percent}%`;
     }
 
-    // Actualizar estilo visual de las burbujas del navegador
+    // Actualizar estilo visual de las burbujas del navegador en tema dark
     function updateNavBubbles() {
         for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
             const btn = document.getElementById(`nav-btn-${i}`);
@@ -327,20 +331,19 @@
             const isCurrent = (i === currentQuestion);
             const isAnswered = !!document.querySelector(`input[name="q_${i}"]:checked`);
 
-            // Resetear clases base
-            btn.className = "h-9 w-full rounded-lg font-bold text-xs flex items-center justify-center transition-all border ";
+            btn.className = "h-9 w-full rounded-xl font-black text-xs flex items-center justify-center transition-all border ";
 
             if (isAnswered) {
                 if (isCurrent) {
-                    btn.className += "bg-emerald-600 text-white ring-2 ring-emerald-400 border-emerald-600 shadow-sm";
+                    btn.className += "bg-emerald-500 text-white ring-2 ring-emerald-300 border-emerald-400 shadow-md shadow-emerald-500/30";
                 } else {
-                    btn.className += "bg-emerald-500 text-white border-emerald-600";
+                    btn.className += "bg-emerald-600 text-white border-emerald-500";
                 }
             } else {
                 if (isCurrent) {
-                    btn.className += "bg-white text-emerald-700 ring-2 ring-emerald-500 border-emerald-500";
+                    btn.className += "bg-slate-800 text-emerald-300 ring-2 ring-emerald-400 border-emerald-400";
                 } else {
-                    btn.className += "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+                    btn.className += "border-slate-800 bg-slate-950 text-slate-400 hover:bg-slate-800 hover:text-white";
                 }
             }
         }
@@ -356,7 +359,7 @@
         const summary = document.getElementById('modalAnswerSummary');
         const warning = document.getElementById('modalWarning');
 
-        summary.innerHTML = `Has respondido <strong>${answered}</strong> de <strong>${TOTAL_QUESTIONS}</strong> preguntas.`;
+        summary.innerHTML = `Has respondido <strong class="text-white">${answered}</strong> de <strong class="text-white">${TOTAL_QUESTIONS}</strong> preguntas.`;
 
         if (answered < TOTAL_QUESTIONS) {
             warning.classList.remove('hidden');
@@ -379,7 +382,6 @@
     // Temporizador
     function startTimer() {
         if (TIMER_MINUTES <= 0) {
-            // Modo práctica libre: solo cuenta el tiempo transcurrido
             timerInterval = setInterval(() => {
                 secondsElapsed++;
             }, 1000);
@@ -411,16 +413,14 @@
 
             display.textContent = formatTime(remainingSeconds);
 
-            // Alerta visual de tiempo por expirar
             if (remainingSeconds <= 120) {
-                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-mono font-bold animate-pulse shadow-md";
+                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-mono font-black animate-pulse shadow-md";
             } else if (remainingSeconds <= 300) {
-                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 text-slate-900 text-xs font-mono font-bold";
+                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-black";
             }
         }, 1000);
     }
 
-    // Inicialización al cargar la página
     document.addEventListener('DOMContentLoaded', () => {
         updateProgress();
         updateNavBubbles();
