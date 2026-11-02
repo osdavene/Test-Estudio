@@ -1,97 +1,82 @@
-# 🎓 Simulador de Exámenes Escolares
+# 🎓 Simulador de Exámenes Escolares (Test-Estudio)
 
-Simulador web interactivo, rápido y ligero desarrollado con **Python (FastAPI + Jinja2 + Tailwind CSS)**. Diseñado específicamente para practicar evaluaciones escolares por temas y talleres.
+Plataforma web ágil, interactiva y ligera desarrollada con **Python (FastAPI + Jinja2 + Tailwind CSS)** en **Tema Oscuro**, diseñada para presentar evaluaciones formativas con preguntas y respuestas aleatorias sin barreras de registro.
 
 🌐 **Enlace de Producción (AWS):** [https://test-estudio.servigest.online](https://test-estudio.servigest.online)  
 📦 **Repositorio GitHub:** [https://github.com/osdavene/Test-Estudio](https://github.com/osdavene/Test-Estudio)
 
 ---
 
-## 🚀 Características Principales
+## ⚡ Características Principales
 
-- **Sin inicios de sesión ni registros**: Acceso inmediato con 1 clic.
-- **Exámenes de 15 preguntas aleatorias**: Cada vez que inicias un test se extrae un subconjunto aleatorio de preguntas del banco de la materia.
-- **Opciones en orden aleatorio**: Las alternativas (A, B, C, D) se mezclan en diferente orden en cada intento para evitar la memorización por posición.
-- **Navegador interactivo de preguntas**: Cuadrícula de 1 a 15 con estados visuales (Respondida, Sin responder, Pregunta actual).
-- **Temporizador pedagógico configurable**: 30 minutos por defecto (2 min/pregunta, ideal para primaria), 20 min, 15 min o modo *Práctica Libre* sin límite de tiempo.
-- **Calificación y Retroalimentación Inmediata**:
-  - Porcentaje de acierto y escala de desempeño.
-  - Métricas de correctas, incorrectas y tiempo empleado.
-  - Desglose de rendimiento por tema/taller.
-  - Revisión pregunta por pregunta con **explicación pedagógica detallada**.
-- **100% Extensible para Nuevas Materias**: Añadir materias futuras (Matemáticas, Ciencias, Sociales, Lenguaje) requiere únicamente agregar un archivo `.json` en `app/subjects/`.
+- **Acceso Inmediato:** Sin usuario, contraseña ni configuración de base de datos.
+- **Exámenes de 15 Preguntas Aleatorias:** Seleccionadas al azar del banco temático en cada nuevo intento.
+- **Opciones Barajadas:** Las alternativas (A, B, C, D) se ordenan de forma aleatoria para evitar la memorización mecánica.
+- **Tiempo Pedagógico Adaptado:** **30 minutos** predeterminados (2 min por pregunta, pensado para niños de primaria) o modo *Práctica Libre*.
+- **Diseño Oscuro Ergonómico:** Paleta oscura (`slate-950` / `slate-900`) con acentos esmeralda inspirada en *Dian2676Py*.
+- **100% Optimizado para Móviles:** Barra superior compacta, barra inferior flotante accesible con el pulgar y hoja óptica modal emergente.
+- **Calificación y Retroalimentación Pedagógica:** Puntaje porcentual, nivel de desempeño, análisis por taller y revisión pregunta por pregunta con **explicación de la solución**.
+- **Arquitectura Modular:** Agregar una nueva materia requiere únicamente incluir su archivo `.json` en `app/subjects/`.
 
 ---
 
-## 📚 Materia Actual: Estadística (Pensamiento Aleatorio) - Grado 3°
-**Institución Educativa Cecilia de Lleras**
+## 📚 Materia Activa: Estadística (Pensamiento Aleatorio) — Grado 3°
+**Institución Educativa Cecilia de Lleras** &bull; Banco de 42 preguntas basadas en los talleres oficiales:
 
-Cubre los 3 talleres y ejes temáticos de los documentos oficiales:
-1. **Taller 1: Recolección y tabulación de datos (Semana 15)**:
-   - Actividad *"El Tesoro de los Datos"*.
-   - Estudio de preferencia de sabor de helado (Chocolate, Vainilla, Fresa).
-   - Tabla de Frecuencias de Deportes (Fútbol, Baloncesto, Natación).
-   - Conceptos estadísticos: Variable, Cualitativa Nominal, Cualitativa Ordinal, Población, Frecuencia Absoluta, Tabla, Datos, Encuesta y Conteo.
-2. **Taller 4: Comparación de datos y formulación de preguntas a partir de tablas (Semana 21)**:
-   - Torneo intercursos y meriendas tradicionales en descansos de 3°A y 3°B (Bollo de Mazorca, Carimañola, Arepa de Huevo).
-   - Identificación de modas por salón (Moda 3°A: Bollo 12; Moda 3°B: Carimañola 15).
-   - Comparaciones directas y cálculos de diferencias por unidades.
-   - Formulación de preguntas de investigación conjuntas y lenguaje formal para cooperativa escolar.
-3. **Taller 5: Redacción de conclusiones estadísticas apoyadas en la interpretación de datos (Semana 23)**:
-   - Encuesta sobre Refrescos Tradicionales en la Ronda del Sinú, Montería (Chicha de Maíz, Agua de Coco, Jugo de Níspero, Guarapo con Limón).
-   - Población total (70 personas).
-   - Categoría de menor preferencia (Níspero, 10) y Moda (Agua de Coco, 25).
-   - Criterios de escritura científica: formulación con rigor técnico sin apreciaciones subjetivas o infantiles.
+| Taller / Eje Temático | Contenidos Evaluados |
+| :--- | :--- |
+| **Taller 1: Recolección y Tabulación (Sem. 15)** | Conteo técnico, helado preferido, tabla de deportes, conceptos de sopa de letras (*variable, cualitativa nominal/ordinal, población, frecuencia absoluta, tabla, encuesta, datos*). |
+| **Taller 4: Comparación de Tablas (Sem. 21)** | Torneo intercursos, meriendas en 3°A y 3°B, cálculo de modas por salón, diferencias numéricas entre categorías y redacción técnica escolar. |
+| **Taller 5: Redacción de Conclusiones (Sem. 23)** | Refrescos tradicionales de la Ronda del Sinú, moda, menor frecuencia, población total y criterios de escritura científica sin apreciaciones subjetivas. |
 
 ---
 
-## 🏃 Cómo Iniciar el Simulador
+## 🚀 Inicio Rápido (Local)
 
-### Opción 1 (Directa en Windows):
-Haz doble clic en el archivo:
-```bash
+### En Windows (1 Clic)
+Haz doble clic en:
+```bat
 iniciar.bat
 ```
 
-### Opción 2 (Desde terminal PowerShell o CMD):
-```bash
-cd C:\Proyectos\Test-Estudio
-python main.py
-```
-O con Uvicorn:
+### Desde Terminal
 ```bash
 python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
-
-Abre tu navegador en:  
-👉 **http://127.0.0.1:8000**
+Abre en tu navegador: **http://127.0.0.1:8000**
 
 ---
 
-## ➕ Cómo Agregar Nuevas Materias en el Futuro
+## ☁️ Despliegue en Servidor AWS (Producción)
 
-Para agregar cualquier otra materia (por ejemplo: Ciencias Naturales, Matemáticas, Historia):
+- **Dominio:** `https://test-estudio.servigest.online` (con SSL Let's Encrypt).
+- **Ruta en Servidor:** `/home/testestudio/htdocs/test-estudio.servigest.online`
+- **Servicio:** `test-estudio.service` (Systemd + Uvicorn en puerto interno `8006`).
+- **CI/CD:** Despliegue automático vía GitHub Actions ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)) en cada push a `main`.
 
-1. Crea un archivo JSON dentro de `app/subjects/`, por ejemplo: `ciencias.json`.
-2. Sigue esta estructura básica:
+---
 
+## ➕ Cómo Agregar Nuevas Materias
+
+Para sumar materias como *Ciencias Naturales*, *Matemáticas* o *Lenguaje*:
+
+1. Crea un archivo JSON en `app/subjects/<materia>.json`:
 ```json
 {
   "id": "ciencias",
   "name": "Ciencias Naturales",
   "grade": "Grado Tercero",
   "institution": "I.E. Cecilia de Lleras",
-  "description": "Evaluación sobre seres vivos, ecosistemas y recursos naturales.",
+  "description": "Evaluación de seres vivos, ecosistemas y recursos.",
   "badge": "Periodo 2",
   "icon": "fa-seedling",
-  "color": "emerald",
-  "default_question_count": 20,
+  "default_question_count": 15,
   "questions": [
     {
       "id": 1,
       "category": "Ecosistemas",
       "question": "¿Cuál es un factor abiótico de un ecosistema?",
-      "context": "Recuerda la clasificación de factores bióticos y abióticos.",
+      "context": "Factores bióticos y abióticos.",
       "options": [
         "El agua y la luz solar",
         "Los peces y las plantas",
@@ -99,10 +84,9 @@ Para agregar cualquier otra materia (por ejemplo: Ciencias Naturales, Matemátic
         "Los animales herbívoros"
       ],
       "correct_answer": "El agua y la luz solar",
-      "explanation": "Los factores abióticos son los elementos no vivos del ambiente, como la luz solar, el agua, la temperatura y el suelo."
+      "explanation": "Los factores abióticos son los elementos no vivos, como el agua, la luz solar y la temperatura."
     }
   ]
 }
 ```
-
-¡El simulador lo detectará automáticamente en la pantalla de inicio sin necesidad de reiniciar el servidor ni configurar bases de datos!
+2. El sistema la detecta y lista automáticamente en la pantalla de inicio sin reiniciar servidores ni configurar bases de datos.
