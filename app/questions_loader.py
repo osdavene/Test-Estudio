@@ -58,7 +58,7 @@ def get_subject_data(subject_id: str) -> Optional[dict]:
     with open(filepath, "r", encoding="utf-8") as f:
         return json.load(f)
 
-def create_exam_session(subject_id: str, question_count: int = 15, time_limit_minutes: int = 15) -> dict:
+def create_exam_session(subject_id: str, question_count: int = 15, time_limit_minutes: int = 30) -> dict:
     """
     Creates a new exam session:
     - Randomly picks `question_count` questions from the pool.
