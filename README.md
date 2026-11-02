@@ -2,6 +2,9 @@
 
 Simulador web interactivo, rápido y ligero desarrollado con **Python (FastAPI + Jinja2 + Tailwind CSS)**. Diseñado específicamente para practicar evaluaciones escolares por temas y talleres.
 
+🌐 **Enlace de Producción (AWS):** [https://test-estudio.servigest.online](https://test-estudio.servigest.online)  
+📦 **Repositorio GitHub:** [https://github.com/osdavene/Test-Estudio](https://github.com/osdavene/Test-Estudio)
+
 ---
 
 ## 🚀 Características Principales
