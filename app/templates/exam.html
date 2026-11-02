@@ -4,31 +4,74 @@
 
 {% block head %}
 <style>
+    /* Soporte táctil y estilos de selección de respuesta */
+    .touch-target {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
     .radio-card input[type="radio"]:checked + div {
         border-color: #10b981;
-        background-color: rgba(6, 78, 59, 0.35);
-        box-shadow: 0 0 0 1px #10b981;
+        background-color: rgba(6, 78, 59, 0.4);
+        box-shadow: 0 0 0 1px #10b981, 0 4px 12px rgba(16, 185, 129, 0.15);
     }
     .radio-card input[type="radio"]:checked + div .opt-badge {
         background-color: #059669;
         color: #ffffff;
-        box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4);
+        border-color: #10b981;
+        box-shadow: 0 2px 8px rgba(5, 150, 105, 0.4);
     }
     .radio-card input[type="radio"]:checked + div .opt-text {
         color: #ffffff;
+        font-weight: 600;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="min-h-[calc(100vh-8rem)] flex flex-col justify-between">
+<div class="min-h-[calc(100vh-8rem)] flex flex-col justify-between pb-24 sm:pb-10">
 
-    <!-- BARRA SUPERIOR FIJA DARK DE CONTROL DEL EXAMEN -->
+    <!-- BARRA SUPERIOR FIJA DARK (OPTIMIZADA RESPONSIVE MOBILE & DESKTOP) -->
     <div class="bg-slate-900/95 border-b border-slate-800/90 sticky top-16 z-30 shadow-2xl backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div class="flex items-center justify-between gap-4">
-                
-                <!-- Identificación del Examen -->
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
+            
+            <!-- Versión Móvil Compacta (visible en smartphones) -->
+            <div class="sm:hidden flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-black text-white font-mono tracking-tight">
+                        P <span id="mobile-current-q" class="text-emerald-400">1</span>/{{ total_questions }}
+                    </span>
+                </div>
+
+                <!-- Reloj en Móvil -->
+                {% if timer_minutes > 0 %}
+                <div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+                    <i class="fa-regular fa-clock text-amber-400 text-[11px] animate-pulse"></i>
+                    <span id="mobile-timer-display" class="font-mono text-xs font-black text-amber-300">--:--</span>
+                </div>
+                {% else %}
+                <div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 text-[10px] font-semibold">
+                    <i class="fa-solid fa-infinity text-emerald-400"></i>
+                    <span>Libre</span>
+                </div>
+                {% endif %}
+
+                <!-- Acciones Rápidas en Móvil -->
+                <div class="flex items-center gap-1.5">
+                    <button type="button" onclick="openNavModal()" 
+                            class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-1 active:scale-95 transition-all">
+                        <i class="fa-solid fa-table-cells text-[10px] text-emerald-400"></i>
+                        <span id="mobile-top-answered">0</span>/{{ total_questions }}
+                    </button>
+                    <button type="button" onclick="openConfirmModal()"
+                            class="px-3 py-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-600/30 active:scale-95">
+                        Finalizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Versión Desktop y Tablet (pantallas medianas y grandes) -->
+            <div class="hidden sm:flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <div>
@@ -40,24 +83,20 @@
                                 {{ session.grade }}
                             </span>
                         </div>
-                        <p class="text-[11px] text-slate-400 hidden sm:block">
+                        <p class="text-[11px] text-slate-400">
                             Preguntas aleatorias &bull; Opciones barajadas
                         </p>
                     </div>
                 </div>
 
-                <!-- Temporizador y Control Finalizar -->
                 <div class="flex items-center gap-3">
-                    
-                    <!-- Progreso en número -->
-                    <div class="text-right hidden sm:block">
+                    <div class="text-right">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block -mb-0.5">Progreso</span>
                         <span class="text-xs font-bold text-slate-200 font-mono">
                             <span id="answeredCount" class="text-emerald-400 font-black">0</span> / {{ total_questions }}
                         </span>
                     </div>
 
-                    <!-- Temporizador Dark -->
                     {% if timer_minutes > 0 %}
                     <div id="timerContainer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 text-xs font-mono font-black shadow-inner">
                         <i class="fa-regular fa-clock text-amber-400 animate-pulse"></i>
@@ -70,7 +109,6 @@
                     </div>
                     {% endif %}
 
-                    <!-- Botón Enviar / Finalizar -->
                     <button type="button" onclick="openConfirmModal()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition-all flex items-center gap-1.5 active:scale-95">
                         <i class="fa-solid fa-flag-checkered text-[11px]"></i>
                         <span>Finalizar</span>
@@ -79,14 +117,14 @@
             </div>
 
             <!-- Barra de Progreso Visual Dark -->
-            <div class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden mt-2.5">
+            <div class="w-full bg-slate-800/80 h-1.5 rounded-full overflow-hidden mt-2 sm:mt-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 h-full transition-all duration-300 w-0"></div>
             </div>
         </div>
     </div>
 
     <!-- FORMULARIO DEL EXAMEN -->
-    <form id="examForm" action="/exam/{{ session.exam_id }}/submit" method="post" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+    <form id="examForm" action="/exam/{{ session.exam_id }}/submit" method="post" class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 w-full flex-1">
         <input type="hidden" name="time_spent" id="timeSpentInput" value="0">
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
@@ -95,52 +133,52 @@
             <div class="lg:col-span-3 space-y-4">
 
                 {% for q in questions %}
-                <div id="q-card-{{ q.order }}" class="question-pane bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 {% if q.order != 1 %}hidden{% endif %}">
+                <div id="q-card-{{ q.order }}" class="question-pane bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 {% if q.order != 1 %}hidden{% endif %}">
                     
                     <!-- Encabezado de la Pregunta -->
-                    <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-800">
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 sm:pb-4 border-b border-slate-800">
                         <div class="flex items-center gap-2">
-                            <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 font-black flex items-center justify-center text-xs border border-emerald-500/30 shadow-inner">
+                            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-emerald-500/20 text-emerald-300 font-black flex items-center justify-center text-xs border border-emerald-500/30 shadow-inner">
                                 #{{ q.order }}
                             </span>
                             <span class="text-xs font-bold text-slate-300">
                                 Pregunta {{ q.order }} de {{ total_questions }}
                             </span>
                         </div>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800">
+                        <span class="px-2.5 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-950 text-slate-300 border border-slate-800 truncate max-w-[200px] sm:max-w-none">
                             {{ q.category }}
                         </span>
                     </div>
 
                     <!-- Contexto Informativo / Tabla de Datos Dark -->
                     {% if q.context %}
-                    <div class="bg-slate-950/90 border-l-4 border-l-emerald-500 border-y border-r border-slate-800 rounded-2xl p-4 text-xs text-slate-200 shadow-inner space-y-1.5">
+                    <div class="bg-slate-950/90 border-l-4 border-l-emerald-500 border-y border-r border-slate-800 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-xs text-slate-200 shadow-inner space-y-1.5 overflow-x-auto">
                         <div class="font-bold flex items-center gap-1.5 text-emerald-400">
                             <i class="fa-solid fa-table-list"></i>
                             <span>Datos del Ejercicio:</span>
                         </div>
-                        <div class="font-medium whitespace-pre-line text-slate-300 pl-1 leading-relaxed">
+                        <div class="font-medium whitespace-pre-line text-slate-300 pl-1 leading-relaxed text-[11px] sm:text-xs">
                             {{ q.context }}
                         </div>
                     </div>
                     {% endif %}
 
                     <!-- Texto de la Pregunta -->
-                    <h2 class="text-base sm:text-lg font-black text-white leading-snug">
+                    <h2 class="text-sm sm:text-lg font-black text-white leading-relaxed sm:leading-snug">
                         {{ q.question }}
                     </h2>
 
-                    <!-- Opciones de Respuesta Dark -->
-                    <div class="space-y-3 pt-2">
+                    <!-- Opciones de Respuesta Dark (Ergonómicas en Móvil) -->
+                    <div class="space-y-2.5 sm:space-y-3 pt-1">
                         {% for opt in q.options %}
-                        <label class="radio-card block cursor-pointer select-none">
+                        <label class="radio-card block cursor-pointer select-none touch-target">
                             <input type="radio" 
                                    name="q_{{ q.order }}" 
                                    value="{{ opt }}" 
                                    class="hidden" 
                                    onchange="onSelectAnswer({{ q.order }})">
-                            <div class="border border-slate-800/90 hover:border-slate-700 bg-slate-950/70 hover:bg-slate-950 rounded-2xl p-4 transition-all flex items-start gap-3.5 shadow-sm">
-                                <span class="opt-badge w-7 h-7 rounded-xl bg-slate-800 text-slate-300 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-700/60 transition-colors">
+                            <div class="border border-slate-800/90 hover:border-slate-700 bg-slate-950/70 hover:bg-slate-950 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 transition-all flex items-start gap-3 shadow-sm min-h-[48px]">
+                                <span class="opt-badge w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-slate-800 text-slate-300 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-700/60 transition-colors">
                                     {% if loop.index == 1 %}A{% elif loop.index == 2 %}B{% elif loop.index == 3 %}C{% else %}D{% endif %}
                                 </span>
                                 <span class="opt-text text-xs sm:text-sm text-slate-300 font-medium leading-relaxed pt-0.5 transition-colors">
@@ -151,8 +189,8 @@
                         {% endfor %}
                     </div>
 
-                    <!-- Navegación Inferior (Anterior / Siguiente) -->
-                    <div class="flex items-center justify-between pt-6 border-t border-slate-800">
+                    <!-- Navegación Inferior (Desktop & Tablet) -->
+                    <div class="hidden sm:flex items-center justify-between pt-6 border-t border-slate-800">
                         <button type="button" 
                                 onclick="goToQuestion({{ q.order - 1 }})" 
                                 class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold border border-slate-700/60 transition-colors flex items-center gap-1.5 {% if q.order == 1 %}invisible{% endif %}">
@@ -182,8 +220,8 @@
 
             </div>
 
-            <!-- PANEL LATERAL: NAVEGADOR DE PREGUNTAS DARK -->
-            <div class="lg:col-span-1 space-y-4">
+            <!-- PANEL LATERAL: NAVEGADOR DE PREGUNTAS (DESKTOP) -->
+            <div class="hidden lg:block lg:col-span-1 space-y-4">
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl sticky top-36">
                     <div class="flex items-center justify-between mb-3.5 pb-3 border-b border-slate-800">
                         <h3 class="text-xs font-black text-white uppercase tracking-wider flex items-center gap-1.5">
@@ -195,7 +233,7 @@
                         </span>
                     </div>
 
-                    <!-- Cuadrícula de Burbujas de Preguntas Dark -->
+                    <!-- Cuadrícula de Burbujas de Preguntas Desktop -->
                     <div class="grid grid-cols-5 gap-2 pt-1">
                         {% for q in questions %}
                         <button type="button" 
@@ -212,7 +250,7 @@
                         {% endfor %}
                     </div>
 
-                    <!-- Leyenda de Estados Dark -->
+                    <!-- Leyenda de Estados Desktop -->
                     <div class="mt-5 pt-4 border-t border-slate-800 space-y-2 text-[11px] text-slate-400">
                         <div class="flex items-center gap-2">
                             <span class="w-3.5 h-3.5 rounded-md bg-emerald-600 border border-emerald-500 inline-block"></span>
@@ -228,7 +266,7 @@
                         </div>
                     </div>
 
-                    <!-- Botón Enviar en Panel Lateral -->
+                    <!-- Botón Enviar en Panel Lateral Desktop -->
                     <div class="pt-4 mt-4 border-t border-slate-800">
                         <button type="button" 
                                 onclick="openConfirmModal()" 
@@ -243,6 +281,77 @@
 
         </div>
     </form>
+
+    <!-- BARRA INFERIOR FIJA FLOTANTE PARA MÓVILES (ESTILO DIAN 2676) -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 border-t border-slate-800/90 p-2.5 backdrop-blur-md shadow-2xl flex items-center justify-between gap-2">
+        <button type="button" 
+                id="mobile-btn-prev"
+                onclick="goToQuestion(currentQuestion - 1)" 
+                class="flex-1 py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+            <span>Anterior</span>
+        </button>
+
+        <button type="button" 
+                onclick="openNavModal()" 
+                class="py-2.5 px-3.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all">
+            <i class="fa-solid fa-table-cells text-xs"></i>
+            <span id="mobile-bar-answered-count">0/{{ total_questions }}</span>
+        </button>
+
+        <button type="button" 
+                id="mobile-btn-next"
+                onclick="goToNextOrConfirm()" 
+                class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all">
+            <span id="mobile-next-text">Siguiente</span>
+            <i id="mobile-next-icon" class="fa-solid fa-chevron-right text-[10px]"></i>
+        </button>
+    </div>
+
+</div>
+
+<!-- MODAL / SHEET NAVEGADOR DE PREGUNTAS PARA MÓVIL -->
+<div id="navModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-t-3xl sm:rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-table-cells text-emerald-400"></i>
+                <h3 class="text-sm font-bold text-white">Navegador de Preguntas</h3>
+            </div>
+            <button type="button" onclick="closeNavModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center text-xs">
+                ✕
+            </button>
+        </div>
+
+        <p class="text-xs text-slate-400">Toca el número para saltar directamente a la pregunta:</p>
+
+        <!-- Cuadrícula de Preguntas Móvil -->
+        <div class="grid grid-cols-5 gap-2 pt-1">
+            {% for q in questions %}
+            <button type="button" 
+                    id="mobile-nav-btn-{{ q.order }}" 
+                    onclick="goToQuestionAndClose({{ q.order }})" 
+                    class="h-10 w-full rounded-xl font-black text-xs flex items-center justify-center transition-all border border-slate-800 bg-slate-950 text-slate-400">
+                {{ q.order }}
+            </button>
+            {% endfor %}
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+            <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-emerald-600 inline-block"></span>
+                <span>Respondida</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-slate-950 border border-slate-800 inline-block"></span>
+                <span>Sin responder</span>
+            </div>
+        </div>
+
+        <button type="button" onclick="closeNavModal()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+            Cerrar Navegador
+        </button>
+    </div>
 </div>
 
 <!-- MODAL DE CONFIRMACIÓN DE ENVÍO DARK -->
@@ -266,10 +375,10 @@
 
         <div class="grid grid-cols-2 gap-3 pt-2">
             <button type="button" onclick="closeConfirmModal()" class="py-2.5 px-4 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-colors">
-                Seguir respondiendo
+                Revisar
             </button>
             <button type="button" onclick="submitExamNow()" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-600/30 transition-colors">
-                Sí, calificar ahora
+                Sí, calificar
             </button>
         </div>
     </div>
@@ -299,8 +408,48 @@
         if (targetCard) targetCard.classList.remove('hidden');
 
         currentQuestion = num;
+
+        // Actualizar indicadores móviles
+        const mobCurrentQ = document.getElementById('mobile-current-q');
+        if (mobCurrentQ) mobCurrentQ.textContent = num;
+
+        // Actualizar botones en barra móvil inferior
+        const prevBtn = document.getElementById('mobile-btn-prev');
+        if (prevBtn) {
+            if (num === 1) {
+                prevBtn.classList.add('opacity-40', 'pointer-events-none');
+            } else {
+                prevBtn.classList.remove('opacity-40', 'pointer-events-none');
+            }
+        }
+
+        const nextText = document.getElementById('mobile-next-text');
+        const nextIcon = document.getElementById('mobile-next-icon');
+        if (nextText && nextIcon) {
+            if (num === TOTAL_QUESTIONS) {
+                nextText.textContent = "Finalizar";
+                nextIcon.className = "fa-solid fa-flag-checkered text-[10px]";
+            } else {
+                nextText.textContent = "Siguiente";
+                nextIcon.className = "fa-solid fa-chevron-right text-[10px]";
+            }
+        }
+
         updateNavBubbles();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToQuestionAndClose(num) {
+        goToQuestion(num);
+        closeNavModal();
+    }
+
+    function goToNextOrConfirm() {
+        if (currentQuestion < TOTAL_QUESTIONS) {
+            goToQuestion(currentQuestion + 1);
+        } else {
+            openConfirmModal();
+        }
     }
 
     // Actualizar estado al seleccionar una respuesta
@@ -317,36 +466,61 @@
             if (checked) answered++;
         }
 
-        document.getElementById('answeredCount').textContent = answered;
+        // Actualizar desktop
+        const answeredEl = document.getElementById('answeredCount');
+        if (answeredEl) answeredEl.textContent = answered;
+
+        // Actualizar mobile
+        const mobTopAns = document.getElementById('mobile-top-answered');
+        if (mobTopAns) mobTopAns.textContent = answered;
+
+        const mobBarAns = document.getElementById('mobile-bar-answered-count');
+        if (mobBarAns) mobBarAns.textContent = `${answered}/${TOTAL_QUESTIONS}`;
+
         const percent = (answered / TOTAL_QUESTIONS) * 100;
         document.getElementById('progressBar').style.width = `${percent}%`;
     }
 
-    // Actualizar estilo visual de las burbujas del navegador en tema dark
+    // Actualizar estilo visual de las burbujas tanto en desktop como en modal móvil
     function updateNavBubbles() {
         for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
             const btn = document.getElementById(`nav-btn-${i}`);
-            if (!btn) continue;
+            const mobBtn = document.getElementById(`mobile-nav-btn-${i}`);
 
             const isCurrent = (i === currentQuestion);
             const isAnswered = !!document.querySelector(`input[name="q_${i}"]:checked`);
 
-            btn.className = "h-9 w-full rounded-xl font-black text-xs flex items-center justify-center transition-all border ";
+            function setStyle(b) {
+                if (!b) return;
+                b.className = "h-9 sm:h-10 w-full rounded-xl font-black text-xs flex items-center justify-center transition-all border ";
 
-            if (isAnswered) {
-                if (isCurrent) {
-                    btn.className += "bg-emerald-500 text-white ring-2 ring-emerald-300 border-emerald-400 shadow-md shadow-emerald-500/30";
+                if (isAnswered) {
+                    if (isCurrent) {
+                        b.className += "bg-emerald-500 text-white ring-2 ring-emerald-300 border-emerald-400 shadow-md shadow-emerald-500/30";
+                    } else {
+                        b.className += "bg-emerald-600 text-white border-emerald-500";
+                    }
                 } else {
-                    btn.className += "bg-emerald-600 text-white border-emerald-500";
-                }
-            } else {
-                if (isCurrent) {
-                    btn.className += "bg-slate-800 text-emerald-300 ring-2 ring-emerald-400 border-emerald-400";
-                } else {
-                    btn.className += "border-slate-800 bg-slate-950 text-slate-400 hover:bg-slate-800 hover:text-white";
+                    if (isCurrent) {
+                        b.className += "bg-slate-800 text-emerald-300 ring-2 ring-emerald-400 border-emerald-400";
+                    } else {
+                        b.className += "border-slate-800 bg-slate-950 text-slate-400 hover:bg-slate-800 hover:text-white";
+                    }
                 }
             }
+
+            setStyle(btn);
+            setStyle(mobBtn);
         }
+    }
+
+    // Modal de Navegación Móvil
+    function openNavModal() {
+        document.getElementById('navModal').classList.remove('hidden');
+    }
+
+    function closeNavModal() {
+        document.getElementById('navModal').classList.add('hidden');
     }
 
     // Modal de confirmación
@@ -379,7 +553,7 @@
         document.getElementById('examForm').submit();
     }
 
-    // Temporizador
+    // Temporizador (Desktop y Móvil sincronizados)
     function startTimer() {
         if (TIMER_MINUTES <= 0) {
             timerInterval = setInterval(() => {
@@ -389,6 +563,7 @@
         }
 
         const display = document.getElementById('timerDisplay');
+        const mobDisplay = document.getElementById('mobile-timer-display');
         const container = document.getElementById('timerContainer');
 
         function formatTime(secs) {
@@ -397,7 +572,9 @@
             return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
 
-        display.textContent = formatTime(remainingSeconds);
+        const initialStr = formatTime(remainingSeconds);
+        if (display) display.textContent = initialStr;
+        if (mobDisplay) mobDisplay.textContent = initialStr;
 
         timerInterval = setInterval(() => {
             secondsElapsed++;
@@ -405,23 +582,29 @@
 
             if (remainingSeconds <= 0) {
                 clearInterval(timerInterval);
-                display.textContent = "00:00";
+                if (display) display.textContent = "00:00";
+                if (mobDisplay) mobDisplay.textContent = "00:00";
                 alert("¡El tiempo límite ha concluido! Tus respuestas se calificarán a continuación.");
                 submitExamNow();
                 return;
             }
 
-            display.textContent = formatTime(remainingSeconds);
+            const formatted = formatTime(remainingSeconds);
+            if (display) display.textContent = formatted;
+            if (mobDisplay) mobDisplay.textContent = formatted;
 
             if (remainingSeconds <= 120) {
-                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-mono font-black animate-pulse shadow-md";
+                if (container) container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 text-white text-xs font-mono font-black animate-pulse shadow-md";
+                if (mobDisplay) mobDisplay.className = "font-mono text-xs font-black text-rose-400 animate-pulse";
             } else if (remainingSeconds <= 300) {
-                container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-black";
+                if (container) container.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-black";
+                if (mobDisplay) mobDisplay.className = "font-mono text-xs font-black text-amber-300";
             }
         }, 1000);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+        goToQuestion(1);
         updateProgress();
         updateNavBubbles();
         startTimer();
