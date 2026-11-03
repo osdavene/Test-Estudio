@@ -167,6 +167,21 @@
                 </div>
                 {% endif %}
 
+                <!-- Imagen de Referencia si existe -->
+                {% if item.image %}
+                <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 sm:p-4 text-center space-y-2">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 pb-2 border-b border-slate-800/80">
+                        <span class="flex items-center gap-1.5 text-emerald-400">
+                            <i class="fa-solid fa-image"></i>
+                            <span>{{ item.image_alt or "Tabla de apoyo" }}</span>
+                        </span>
+                    </div>
+                    <div class="bg-white rounded-xl p-2 sm:p-3 inline-block shadow-inner max-w-full overflow-hidden">
+                        <img src="{{ item.image }}" alt="{{ item.image_alt or 'Ilustración' }}" class="max-h-48 sm:max-h-60 w-auto mx-auto object-contain rounded-lg">
+                    </div>
+                </div>
+                {% endif %}
+
                 <!-- Texto de Pregunta -->
                 <p class="text-sm sm:text-base font-bold text-white leading-relaxed">
                     {{ item.question }}

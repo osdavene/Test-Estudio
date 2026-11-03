@@ -38,6 +38,10 @@ webfonts_dir = os.path.join(STATIC_DIR, "webfonts")
 if os.path.exists(webfonts_dir):
     app.mount("/webfonts", StaticFiles(directory=webfonts_dir), name="webfonts")
 
+img_dir = os.path.join(STATIC_DIR, "img")
+if os.path.exists(img_dir):
+    app.mount("/img", StaticFiles(directory=img_dir), name="img")
+
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 @app.get("/", response_class=HTMLResponse)

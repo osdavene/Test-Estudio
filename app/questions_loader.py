@@ -91,6 +91,8 @@ def create_exam_session(subject_id: str, question_count: int = 15, time_limit_mi
             "category": q.get("category", "General"),
             "question": q.get("question"),
             "context": q.get("context"),
+            "image": q.get("image"),
+            "image_alt": q.get("image_alt", "Imagen de referencia"),
             "options": shuffled_options,
             "correct_answer": q.get("correct_answer"),
             "explanation": q.get("explanation", "")
@@ -159,6 +161,8 @@ def evaluate_exam(exam_id: str, user_answers: Dict[str, str], time_spent_seconds
             "category": category,
             "question": q["question"],
             "context": q["context"],
+            "image": q.get("image"),
+            "image_alt": q.get("image_alt", "Imagen de referencia"),
             "options": q["options"],
             "selected_option": selected_option if not is_unanswered else None,
             "correct_option": correct_option,
