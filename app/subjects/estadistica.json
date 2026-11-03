@@ -22,8 +22,8 @@
       ],
       "correct_answer": "Una característica o cualidad que se observa o investiga en un grupo de estudio",
       "explanation": "En estadística, una variable es la característica, cualidad o aspecto que se observa, mide o investiga en los individuos u objetos de un estudio.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q01.png",
+      "image_alt": "Ilustración: ¿Qué es una Variable en Estadística?"
     },
     {
       "id": 2,
@@ -38,8 +38,8 @@
       ],
       "correct_answer": "Tipo de variable cualitativa que describe cualidades sin ningún orden establecido",
       "explanation": "La variable cualitativa nominal describe cualidades o categorías que no tienen un orden preestablecido (por ejemplo: color favorito, comida preferida, deporte).",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q02.png",
+      "image_alt": "Ilustración: Variable Cualitativa Nominal"
     },
     {
       "id": 3,
@@ -54,8 +54,8 @@
       ],
       "correct_answer": "El puesto ocupado en una competencia de atletismo (1.º, 2.º o 3.er puesto)",
       "explanation": "Es cualitativa ordinal porque describe una cualidad o categoría que tiene una jerarquía u orden establecido (primero, segundo, tercero).",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q03.png",
+      "image_alt": "Ilustración: Variable Cualitativa Ordinal (Podio de Atletismo con 1.º, 2.º y 3.er puesto)"
     },
     {
       "id": 4,
@@ -70,8 +70,8 @@
       ],
       "correct_answer": "El conjunto total de individuos, objetos o elementos que se investigan",
       "explanation": "La población es el conjunto completo de todos los elementos o individuos sobre los cuales se realizan las observaciones o preguntas de la investigación.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q04.png",
+      "image_alt": "Ilustración: Población Completa en un Estudio Estadístico"
     },
     {
       "id": 5,
@@ -86,8 +86,8 @@
       ],
       "correct_answer": "Al número de veces que se repite un dato o una categoría específica",
       "explanation": "La frecuencia absoluta es la cantidad exacta de veces que se repite cada valor o dato dentro de la recolección de información.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q05.png",
+      "image_alt": "Ilustración: Frecuencia Absoluta (Conteo y Repeticiones)"
     },
     {
       "id": 6,
@@ -102,8 +102,8 @@
       ],
       "correct_answer": "Organizar y resumir los datos recolectados en filas y columnas claras",
       "explanation": "Una tabla de frecuencias es un instrumento organizador que distribuye los datos en filas y columnas con sus respectivas marcas de conteo y frecuencias numéricas.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q06.png",
+      "image_alt": "Tabla de Frecuencia Técnica: Filas, Columnas y Conteos"
     },
     {
       "id": 7,
@@ -118,8 +118,8 @@
       ],
       "correct_answer": "La encuesta",
       "explanation": "La encuesta es la técnica o instrumento estructurado para hacer preguntas y recolectar datos de un grupo poblacional específico.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q07.png",
+      "image_alt": "Ilustración: Formulario de Encuesta Escolar"
     },
     {
       "id": 8,
@@ -134,8 +134,8 @@
       ],
       "correct_answer": "En registrar marcas o líneas por cada respuesta obtenida para luego totalizarlas",
       "explanation": "El conteo técnico consiste en trazar marcas ordenadas (palitos o marcas de conteo por grupos, usualmente de 5) cada vez que aparece una respuesta.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q08.png",
+      "image_alt": "Ilustración: Conteo Técnico por Marcas (Palotes en grupos cerrados de 5)"
     },
     {
       "id": 9,
@@ -150,8 +150,8 @@
       ],
       "correct_answer": "Sabor de helado preferido",
       "explanation": "La variable es la cualidad o preferencia que se investigó a los niños: 'Sabor de helado preferido'.",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Tabla de Frecuencia: Sabores de Helado en 3° Grado"
+      "image": "/static/img/questions/q09.png",
+      "image_alt": "Gráfico de Helados: Identificación de la Variable Analizada"
     },
     {
       "id": 10,
@@ -166,8 +166,8 @@
       ],
       "correct_answer": "Variable cualitativa nominal",
       "explanation": "Es cualitativa nominal porque los sabores (chocolate, vainilla, fresa) son palabras/cualidades que no tienen ningún orden numérico o jerárquico.",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Tabla de Frecuencia: Sabores de Helado en 3° Grado"
+      "image": "/static/img/questions/q10.png",
+      "image_alt": "Gráfico de Helados: Clasificación de la Variable Nominal"
     },
     {
       "id": 11,
@@ -182,8 +182,8 @@
       ],
       "correct_answer": "23 estudiantes",
       "explanation": "El tamaño de la población encuestada es la suma de todas las frecuencias absolutas: 10 + 8 + 5 = 23 estudiantes.",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Tabla de Frecuencia: Sabores de Helado en 3° Grado"
+      "image": "/static/img/questions/q11.png",
+      "image_alt": "Gráfico de Helados: Suma de la Población Total Encuestada (23 estudiantes)"
     },
     {
       "id": 12,
@@ -198,8 +198,8 @@
       ],
       "correct_answer": "Chocolate, porque obtuvo la mayor frecuencia absoluta con 10 votos",
       "explanation": "La moda es el dato con mayor frecuencia absoluta. Chocolate obtuvo 10 votos, superando a vainilla (8) y fresa (5).",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Tabla de Frecuencia: Sabores de Helado en 3° Grado"
+      "image": "/static/img/questions/q12.png",
+      "image_alt": "Gráfico de Helados: Identificación de la Moda (Chocolate con 10 preferencias)"
     },
     {
       "id": 13,
@@ -214,8 +214,8 @@
       ],
       "correct_answer": "2 votos de diferencia",
       "explanation": "La diferencia técnica se obtiene restando las frecuencias absolutas: 10 - 8 = 2 votos.",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Tabla de Frecuencia: Sabores de Helado en 3° Grado"
+      "image": "/static/img/questions/q13.png",
+      "image_alt": "Gráfico de Helados: Diferencia entre Chocolate (10) y Vainilla (8)"
     },
     {
       "id": 14,
@@ -230,8 +230,8 @@
       ],
       "correct_answer": "Registrar los datos y realizar un conteo para saber qué útil se repitió más veces",
       "explanation": "La actividad buscaba vivenciar la recolección de datos y el conteo de frecuencias absolutas para identificar el objeto más frecuente.",
-      "image": "/static/img/taller1_tabla_helados.png",
-      "image_alt": "Actividad: El Tesoro de los Datos"
+      "image": "/static/img/questions/q14.png",
+      "image_alt": "Ilustración: Actividad El Tesoro de los Datos (Útiles Escolares)"
     },
     {
       "id": 15,
@@ -246,8 +246,8 @@
       ],
       "correct_answer": "30 personas encuestadas",
       "explanation": "La población encuestada corresponde a la suma de las frecuencias absolutas: 12 + 8 + 10 = 30.",
-      "image": "/static/img/taller1_deportes_2_22.png",
-      "image_alt": "Tabla oficial de Preferencia de Deportes con marcas de conteo"
+      "image": "/static/img/questions/q15.png",
+      "image_alt": "Gráfico de Deportes: Suma de la Población Total Encuestada (30 personas)"
     },
     {
       "id": 16,
@@ -262,8 +262,8 @@
       ],
       "correct_answer": "Baloncesto con 8 preferencias",
       "explanation": "El valor mínimo de frecuencia absoluta en la tabla es 8, que corresponde a Baloncesto.",
-      "image": "/static/img/taller1_deportes_2_22.png",
-      "image_alt": "Tabla oficial de Preferencia de Deportes con marcas de conteo"
+      "image": "/static/img/questions/q16.png",
+      "image_alt": "Gráfico de Deportes: Deporte con Menor Frecuencia Absoluta (Baloncesto)"
     },
     {
       "id": 17,
@@ -278,8 +278,8 @@
       ],
       "correct_answer": "Dos grupos cerrados de 5 marcas y 2 marcas sueltas (5 + 5 + 2)",
       "explanation": "En el conteo técnico por marcas, se agrupa de 5 en 5 (cuatro palitos y una diagonal cruzada). Por tanto, 12 = 5 + 5 + 2.",
-      "image": "/static/img/taller1_deportes_2_22.png",
-      "image_alt": "Tabla oficial de Preferencia de Deportes con marcas de conteo"
+      "image": "/static/img/questions/q17.png",
+      "image_alt": "Ilustración: Conteo Técnico de 12 Marcas de Fútbol (5 + 5 + 2)"
     },
     {
       "id": 18,
@@ -294,8 +294,8 @@
       ],
       "correct_answer": "2 unidades de diferencia",
       "explanation": "Fútbol (12) - Natación (10) = 2 unidades de diferencia.",
-      "image": "/static/img/taller1_deportes_2_22.png",
-      "image_alt": "Tabla oficial de Preferencia de Deportes con marcas de conteo"
+      "image": "/static/img/questions/q18.png",
+      "image_alt": "Gráfico de Deportes: Diferencia entre Fútbol (12) y Natación (10)"
     },
     {
       "id": 19,
@@ -310,8 +310,8 @@
       ],
       "correct_answer": "26 estudiantes",
       "explanation": "La suma técnica de las frecuencias en 3°A es: 12 + 6 + 8 = 26 estudiantes.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q19.png",
+      "image_alt": "Gráfico Comparativo: Población Total de Salón 3°A (26 estudiantes)"
     },
     {
       "id": 20,
@@ -326,8 +326,8 @@
       ],
       "correct_answer": "30 estudiantes",
       "explanation": "La suma técnica de las frecuencias en 3°B es: 5 + 15 + 10 = 30 estudiantes.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q20.png",
+      "image_alt": "Gráfico Comparativo: Población Total de Salón 3°B (30 estudiantes)"
     },
     {
       "id": 21,
@@ -342,8 +342,8 @@
       ],
       "correct_answer": "Bollo de Mazorca con 12 votos",
       "explanation": "En 3°A, el Bollo de Mazorca tiene la mayor frecuencia absoluta (12), por lo tanto es la moda del salón.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q21.png",
+      "image_alt": "Gráfico Comparativo: Moda de Merienda en Grado 3°A (Bollo de Mazorca con 12 votos)"
     },
     {
       "id": 22,
@@ -358,8 +358,8 @@
       ],
       "correct_answer": "Carimañola con 15 votos",
       "explanation": "En 3°B, la Carimañola obtuvo la mayor frecuencia absoluta (15 votos), siendo la moda de este salón.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q22.png",
+      "image_alt": "Gráfico Comparativo: Moda de Merienda en Grado 3°B (Carimañola con 15 votos)"
     },
     {
       "id": 23,
@@ -374,8 +374,8 @@
       ],
       "correct_answer": "Tiene mayor preferencia en 3°B por 2 unidades de diferencia (10 - 8 = 2)",
       "explanation": "En 3°B la frecuencia es 10 y en 3°A es 8. La mayor preferencia está en 3°B con 10 - 8 = 2 unidades de ventaja.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q23.png",
+      "image_alt": "Gráfico Comparativo: Preferencia de Arepa de Huevo (3°A vs 3°B)"
     },
     {
       "id": 24,
@@ -390,8 +390,8 @@
       ],
       "correct_answer": "En 3°A por 7 unidades de diferencia (12 - 5 = 7)",
       "explanation": "En 3°A la frecuencia es 12 y en 3°B es 5. La diferencia a favor de 3°A es 12 - 5 = 7 unidades.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q24.png",
+      "image_alt": "Gráfico Comparativo: Preferencia de Bollo de Mazorca (3°A vs 3°B)"
     },
     {
       "id": 25,
@@ -406,8 +406,8 @@
       ],
       "correct_answer": "9 unidades a favor de 3°B (15 - 6 = 9)",
       "explanation": "Carimañola en 3°B tiene 15 y en 3°A tiene 6. La diferencia es 15 - 6 = 9 unidades.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q25.png",
+      "image_alt": "Gráfico Comparativo: Preferencia de Carimañola (3°A vs 3°B)"
     },
     {
       "id": 26,
@@ -422,8 +422,8 @@
       ],
       "correct_answer": "56 estudiantes en total",
       "explanation": "La suma total de encuestados en ambos salones es 26 + 30 = 56 estudiantes.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q26.png",
+      "image_alt": "Ilustración: Población Total Combinada de 3°A y 3°B (56 Estudiantes)"
     },
     {
       "id": 27,
@@ -438,8 +438,8 @@
       ],
       "correct_answer": "21 estudiantes",
       "explanation": "Sumando ambas frecuencias: 6 (en 3°A) + 15 (en 3°B) = 21 estudiantes.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q27.png",
+      "image_alt": "Ilustración: Total Acumulado de Carimañola en Ambos Salones (21 votos)"
     },
     {
       "id": 28,
@@ -454,8 +454,8 @@
       ],
       "correct_answer": "Carimañola con 21 votos en total",
       "explanation": "Al consolidar ambos cursos: Carimañola = 21, Arepa de Huevo = 18, Bollo de Mazorca = 17. La mayor es Carimañola.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q28.png",
+      "image_alt": "Gráfico Consolidado: Merienda Ganadora en Ambos Salones (Carimañola)"
     },
     {
       "id": 29,
@@ -470,8 +470,8 @@
       ],
       "correct_answer": "¿En cuál de los dos salones hubo mayor preferencia por la Arepa de Huevo?",
       "explanation": "Para comparar qué salón tuvo mayor preferencia, se necesita examinar simultáneamente los datos de la Tabla 1 (3°A) y de la Tabla 2 (3°B).",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q29.png",
+      "image_alt": "Ilustración: Análisis Simultáneo de las Tablas de 3°A y 3°B"
     },
     {
       "id": 30,
@@ -486,8 +486,8 @@
       ],
       "correct_answer": "Para 3°A se debe priorizar el Bollo de Mazorca (moda con 12 votos) y para 3°B la Carimañola (moda con 15 votos), según su frecuencia absoluta",
       "explanation": "El taller exige expresamente evitar expresiones infantiles o subjetivas y fundamentar las afirmaciones con términos como 'moda' y 'frecuencia absoluta'.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q30.png",
+      "image_alt": "Infografía: Recomendación Técnica Formal para la Cooperativa Escolar"
     },
     {
       "id": 31,
@@ -502,8 +502,8 @@
       ],
       "correct_answer": "70 personas encuestadas",
       "explanation": "La tabla indica explícitamente en su fila de total: 15 + 25 + 10 + 20 = 70 personas.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q31.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Población Total Encuestada (70 personas)"
     },
     {
       "id": 32,
@@ -518,8 +518,8 @@
       ],
       "correct_answer": "Bebida refrescante tradicional preferida",
       "explanation": "La variable es la bebida refrescante que las personas prefieren, clasificada por categorías de texto sin jerarquía numérica.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q32.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Variable Cualitativa Nominal"
     },
     {
       "id": 33,
@@ -534,8 +534,8 @@
       ],
       "correct_answer": "Jugo de Níspero, con una frecuencia absoluta de 10 personas",
       "explanation": "El Jugo de Níspero registró la menor frecuencia absoluta del estudio con 10 personas.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q33.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Bebida con Menor Preferencia (Jugo de Níspero)"
     },
     {
       "id": 34,
@@ -550,8 +550,8 @@
       ],
       "correct_answer": "Agua de Coco, porque registra la mayor frecuencia absoluta con 25 votos",
       "explanation": "La moda estadística es el valor con mayor frecuencia absoluta; en esta tabla corresponde a Agua de Coco con 25 personas.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q34.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Moda Estadística (Agua de Coco con 25 votos)"
     },
     {
       "id": 35,
@@ -566,8 +566,8 @@
       ],
       "correct_answer": "Por 15 personas (25 - 10 = 15)",
       "explanation": "Restando la menor frecuencia de la mayor frecuencia: 25 - 10 = 15 personas de diferencia.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q35.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Diferencia Agua de Coco vs Níspero (15 personas)"
     },
     {
       "id": 36,
@@ -582,8 +582,8 @@
       ],
       "correct_answer": "20 personas",
       "explanation": "La casilla correspondiente al Guarapo con Limón indica directamente una frecuencia absoluta de 20 personas.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q36.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Frecuencia de Guarapo con Limón (20 personas)"
     },
     {
       "id": 37,
@@ -598,8 +598,8 @@
       ],
       "correct_answer": "35 personas (15 + 20 = 35)",
       "explanation": "La suma combinada de ambas preferencias es 15 + 20 = 35 personas.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q37.png",
+      "image_alt": "Gráfico de Bebidas Ronda del Sinú: Suma de Chicha (15) y Guarapo (20)"
     },
     {
       "id": 38,
@@ -614,8 +614,8 @@
       ],
       "correct_answer": "La moda de la muestra corresponde al Agua de Coco al alcanzar la máxima frecuencia absoluta con 25 preferencias",
       "explanation": "Una conclusión estadística científica debe ser objetiva, sustentarse en datos numéricos y emplear el vocabulario técnico requerido.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q38.png",
+      "image_alt": "Infografía: Estructura de una Conclusión Científica Formal"
     },
     {
       "id": 39,
@@ -630,8 +630,8 @@
       ],
       "correct_answer": "Porque son apreciaciones subjetivas e informales que carecen de rigor técnico y sustento numérico",
       "explanation": "El taller prohíbe explícitamente el vocabulario infantil o subjetivo, exigiendo fundamentar las afirmaciones con términos estadísticos formales.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q39.png",
+      "image_alt": "Infografía: Rigor Técnico vs Lenguaje Subjetivo en Estadística"
     },
     {
       "id": 40,
@@ -646,8 +646,8 @@
       ],
       "correct_answer": "Abastecer principalmente Agua de Coco por ser la moda estadística con la mayor frecuencia absoluta (25 votos)",
       "explanation": "La toma de decisiones informada por datos estadísticos aprovecha la moda y frecuencias observadas para satisfacer la mayor demanda.",
-      "image": "/static/img/taller5_tabla_bebidas.png",
-      "image_alt": "Tabla oficial de Refrescos de la Ronda del Sinú"
+      "image": "/static/img/questions/q40.png",
+      "image_alt": "Infografía: Decisión Comercial Basada en Datos y Frecuencias"
     },
     {
       "id": 41,
@@ -662,8 +662,8 @@
       ],
       "correct_answer": "La cualitativa expresa características o cualidades (palabras), mientras que la cuantitativa expresa cantidades medibles numéricamente",
       "explanation": "Las variables cualitativas representan cualidades o categorías descriptivas, mientras que las cuantitativas representan valores numéricos de conteo o medición.",
-      "image": "/static/img/sopa_de_letras.png",
-      "image_alt": "Sopa de Letras y conceptos del Taller 1"
+      "image": "/static/img/questions/q41.png",
+      "image_alt": "Infografía Comparativa: Variable Cualitativa vs Cuantitativa"
     },
     {
       "id": 42,
@@ -678,8 +678,8 @@
       ],
       "correct_answer": "El grado 3°B con 4 estudiantes más que 3°A (30 - 26 = 4)",
       "explanation": "Comparando las poblaciones totales: 30 (de 3°B) - 26 (de 3°A) = 4 estudiantes más a favor de 3°B.",
-      "image": "/static/img/taller4_meriendas_1_13.png",
-      "image_alt": "Tablas de Meriendas: Salón 3°A y Salón 3°B"
+      "image": "/static/img/questions/q42.png",
+      "image_alt": "Gráfico Comparativo: Tamaño de Salones y Participación (3°A vs 3°B)"
     }
   ]
 }

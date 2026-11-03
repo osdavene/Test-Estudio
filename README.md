@@ -15,6 +15,7 @@ Plataforma web ágil, interactiva y ligera desarrollada con **Python (FastAPI + 
 - **Tiempo Pedagógico Adaptado:** **30 minutos** predeterminados (2 min por pregunta, pensado para niños de primaria) o modo *Práctica Libre*.
 - **Diseño Oscuro Ergonómico:** Paleta oscura (`slate-950` / `slate-900`) con acentos esmeralda inspirada en *Dian2676Py*.
 - **100% Optimizado para Móviles:** Barra superior compacta, barra inferior flotante accesible con el pulgar y hoja óptica modal emergente.
+- **Gráficos e Ilustraciones Creados para Niños:** Las 42 preguntas cuentan con **gráficos e infografías diseñados a medida en alta resolución**, con esquemas de barras, conteos técnicos con palotes, tablas comparativas y diagramas claros para facilitar el aprendizaje visual en niños de primaria.
 - **Calificación y Retroalimentación Pedagógica:** Puntaje porcentual, nivel de desempeño, análisis por taller y revisión pregunta por pregunta con **explicación de la solución**.
 - **Arquitectura Modular:** Agregar una nueva materia requiere únicamente incluir su archivo `.json` en `app/subjects/`.
 

@@ -167,17 +167,20 @@
                 </div>
                 {% endif %}
 
-                <!-- Imagen de Referencia si existe -->
+                <!-- Imagen de Referencia Creada -->
                 {% if item.image %}
-                <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 sm:p-4 text-center space-y-2">
-                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 pb-2 border-b border-slate-800/80">
+                <div class="bg-slate-950/90 border border-slate-800/90 rounded-2xl p-2.5 sm:p-3 text-center space-y-2 shadow-lg">
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400 pb-2 border-b border-slate-800/80 px-1">
                         <span class="flex items-center gap-1.5 text-emerald-400">
-                            <i class="fa-solid fa-image"></i>
-                            <span>{{ item.image_alt or "Tabla de apoyo" }}</span>
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>{{ item.image_alt or "Gráfico de apoyo evaluado" }}</span>
+                        </span>
+                        <span class="text-[10px] text-emerald-300 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                            Ilustración didáctica
                         </span>
                     </div>
-                    <div class="bg-white rounded-xl p-2 sm:p-3 inline-block shadow-inner max-w-full overflow-hidden">
-                        <img src="{{ item.image }}" alt="{{ item.image_alt or 'Ilustración' }}" class="max-h-48 sm:max-h-60 w-auto mx-auto object-contain rounded-lg">
+                    <div class="bg-slate-900 rounded-xl p-1 sm:p-1.5 inline-block border border-slate-800/80 max-w-full overflow-hidden">
+                        <img src="{{ item.image }}" alt="{{ item.image_alt or 'Ilustración' }}" class="max-h-52 sm:max-h-72 w-auto mx-auto object-contain rounded-lg">
                     </div>
                 </div>
                 {% endif %}
