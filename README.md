@@ -42,6 +42,20 @@ Banco de **40 preguntas** basadas en los talleres y guías técnicas de Segundo 
 | **Taller 3: Perímetro en cuadrícula (Sem. 21)** | Concepto de perímetro como contorno exterior, regla técnica de omitir líneas internas, puesto rectangular del Mercado del Sur (3x2), situación Saber del planchón del Río Sinú (4x3), letra "M" de Montería en cuadrícula, identificación de vértices y fórmula del perímetro. |
 | **Taller 4: Polígonos en el geoplano (Sem. 23)** | Construcción con pines y bandas elásticas, unidad lineal entre pines consecutivos, condición de figura cerrada para ser polígono, planchón en geoplano (3x2), carpas triangulares (lados y vértices), situación Saber del cuadrado de 3x3 del Proyecto Centro de Interés. |
 
+### 3. 🌍 Ciencias Sociales (Geografía, Historia y Economía)
+Banco de **40 preguntas** basadas en la Guía de Estudio Oficial de Tercer Periodo (8 Temas):
+
+| Unidad / Eje Temático | Contenidos Evaluados |
+| :--- | :--- |
+| **Tema 1: Recursos Naturales de Colombia** | Satisfacción de necesidades humanas, factores de la riqueza natural (relieve y posición astronómica), selvas del Pacífico y Amazonia, sabanas ganaderas del Caribe y Orinoquia, riqueza minera (carbón, petróleo, oro, esmeraldas). |
+| **Tema 2: El Planeta Tierra y Océanos** | La Tierra vista desde el espacio como "el planeta azul", distribución (70% agua y 30% continentes), los 5 grandes océanos (Pacífico, Atlántico, Índico, Ártico, Antártico), continente helado antártico deshabitado, ubicación de Colombia en el noroccidente de Suramérica con dos océanos. |
+| **Tema 3: Fronteras y Límites de Colombia** | Superficie territorial (1 141 748 km²) y marítima (928 660 km²), límites con 5 países (Venezuela, Brasil, Perú, Ecuador y Panamá), frontera más larga (Venezuela con 2219 km), tratados internacionales limítrofes y zonas de frontera para la integración y la paz. |
+| **Tema 4: Periodos Históricos e Indígenas** | 4 grandes periodos (Indígena, Hispánico, Independencia, República), poblamiento aborigen de +20 000 años, 3 familias lingüísticas (Chibcha, Caribe, Arawac), fin del periodo indígena en el año 1500 con la llegada de expediciones españolas. |
+| **Tema 5: Periodo Hispánico y Mestizaje** | Etapas de Descubrimiento, Conquista y Colonia; primeras ciudades fundadas (Santa Marta 1525, Cartagena 1533, Bogotá 1538); 300 años de régimen colonial virreinal; mestizaje triétnico (indígenas, españoles y africanos); aportes hispánicos (idioma español, religión católica, animales domésticos, arquitectura). |
+| **Tema 6: Periodo de la República** | Inicio en 1810 con Acta de Independencia; Batalla de Boyacá del 7 de agosto de 1819 con Simón Bolívar; evolución constitucional de nombres (Gran Colombia, Rep. Neogranadina, Conf. Granadina, EE.UU. de Colombia y República de Colombia desde 1886); exportaciones de café, banano, flores, carbón y petróleo. |
+| **Tema 7: Los Tres Sectores de la Economía** | Sector Primario (extracción natural: café, banano, flores, caña, minería), Sector Secundario (transformación industrial y manufactura en fábricas), Sector Terciario (servicios: comercio, transporte, banca, salud, educación); superación de desigualdades sociales. |
+| **Tema 8: Diversidad Cultural y Exponentes** | Plurietnicidad e identidad regional (habla, trajes, platos típicos, música y danzas folclóricas); exponentes mundiales: Gabriel García Márquez (Premio Nobel 1982), Fernando Botero (arte y esculturas con volumen "Boterismo"), Shakira y Juanes (embajadores de la música colombiana). |
+
 ---
 
 ## 🚀 Inicio Rápido (Local)
