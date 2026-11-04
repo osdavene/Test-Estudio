@@ -15,20 +15,32 @@ Plataforma web ágil, interactiva y ligera desarrollada con **Python (FastAPI + 
 - **Tiempo Pedagógico Adaptado:** **30 minutos** predeterminados (2 min por pregunta, pensado para niños de primaria) o modo *Práctica Libre*.
 - **Diseño Oscuro Ergonómico:** Paleta oscura (`slate-950` / `slate-900`) con acentos esmeralda inspirada en *Dian2676Py*.
 - **100% Optimizado para Móviles:** Barra superior compacta, barra inferior flotante accesible con el pulgar y hoja óptica modal emergente.
-- **Gráficos e Ilustraciones Creados para Niños:** Las 42 preguntas cuentan con **gráficos e infografías diseñados a medida en alta resolución**, con esquemas de barras, conteos técnicos con palotes, tablas comparativas y diagramas claros para facilitar el aprendizaje visual en niños de primaria.
+- **Gráficos e Ilustraciones Creados para Niños:** Todas las preguntas de cada materia cuentan con **gráficos e infografías diseñados a medida en alta resolución** (esquemas de barras, cuadrículas de perímetro, geoplanos con bandas elásticas, reglas graduadas con punto cero, conteos técnicos y diagramas geométricos) para facilitar el aprendizaje visual en niños de primaria.
 - **Calificación y Retroalimentación Pedagógica:** Puntaje porcentual, nivel de desempeño, análisis por taller y revisión pregunta por pregunta con **explicación de la solución**.
-- **Arquitectura Modular:** Agregar una nueva materia requiere únicamente incluir su archivo `.json` en `app/subjects/`.
+- **Arquitectura Modular Multimateria:** Selector inicial interactivo para elegir entre las materias disponibles. Agregar una nueva materia requiere únicamente incluir su archivo `.json` en `app/subjects/`.
 
 ---
 
-## 📚 Materia Activa: Estadística (Pensamiento Aleatorio) — Grado 3°
-**Institución Educativa Cecilia de Lleras** &bull; Banco de 42 preguntas basadas en los talleres oficiales:
+## 📚 Materias Disponibles — Grado 3° (I.E. Cecilia de Lleras)
+
+### 1. 📊 Estadística (Pensamiento Aleatorio)
+Banco de **42 preguntas** basadas en los talleres oficiales de Segundo Periodo:
 
 | Taller / Eje Temático | Contenidos Evaluados |
 | :--- | :--- |
-| **Taller 1: Recolección y Tabulación (Sem. 15)** | Conteo técnico, helado preferido, tabla de deportes, conceptos de sopa de letras (*variable, cualitativa nominal/ordinal, población, frecuencia absoluta, tabla, encuesta, datos*). |
+| **Taller 1: Recolección y Tabulación (Sem. 15)** | Conteo técnico con palotes, helado preferido, tabla de deportes, conceptos de sopa de letras (*variable, cualitativa nominal/ordinal, población, frecuencia absoluta, tabla, encuesta, datos*). |
 | **Taller 4: Comparación de Tablas (Sem. 21)** | Torneo intercursos, meriendas en 3°A y 3°B, cálculo de modas por salón, diferencias numéricas entre categorías y redacción técnica escolar. |
 | **Taller 5: Redacción de Conclusiones (Sem. 23)** | Refrescos tradicionales de la Ronda del Sinú, moda, menor frecuencia, población total y criterios de escritura científica sin apreciaciones subjetivas. |
+
+### 2. 📐 Geometría (Pensamiento Espacial y Métrico)
+Banco de **40 preguntas** basadas en los talleres y guías técnicas de Segundo Periodo:
+
+| Taller / Eje Temático | Contenidos Evaluados (DBA 4 y DBA 5) |
+| :--- | :--- |
+| **Taller 1: Herramientas no estandarizadas (Sem. 15)** | Longitud como atributo medible, Rally de la Cuarta (técnica consecutiva), medición con pasos en el patio escolar, precisión con el pulgar (hojas y ramitas), situación Saber de Juan y María en la puerta del aula, patrones arbitrarios y dispersión. |
+| **Taller 2: Instrumentos estandarizados y precisión (Sem. 17)** | Uso de la regla graduada, regla de oro del punto cero (0), situación Saber del sacapuntas (1 a 4 cm), centímetro (cm) y metro (1 m = 100 cm), criterio de selección (regla rígida vs cinta métrica flexible para curvas), estimación, cálculo de error y líneas perpendiculares (90°). |
+| **Taller 3: Perímetro en cuadrícula (Sem. 21)** | Concepto de perímetro como contorno exterior, regla técnica de omitir líneas internas, puesto rectangular del Mercado del Sur (3x2), situación Saber del planchón del Río Sinú (4x3), letra "M" de Montería en cuadrícula, identificación de vértices y fórmula del perímetro. |
+| **Taller 4: Polígonos en el geoplano (Sem. 23)** | Construcción con pines y bandas elásticas, unidad lineal entre pines consecutivos, condición de figura cerrada para ser polígono, planchón en geoplano (3x2), carpas triangulares (lados y vértices), situación Saber del cuadrado de 3x3 del Proyecto Centro de Interés. |
 
 ---
 

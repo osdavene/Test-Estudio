@@ -1,0 +1,678 @@
+import json
+
+questions = [
+    # -------------------------------------------------------------
+    # TALLER 1: HERRAMIENTAS NO ESTANDARIZADAS Y LONGITUD (Q1 - Q10)
+    # -------------------------------------------------------------
+    {
+        "id": 1,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "¿Qué es la longitud en geometría y qué nos permite medir?",
+        "context": "Conceptos Básicos de Medición:\nLa longitud es una magnitud física medible.",
+        "options": [
+            "La magnitud física que expresa la distancia recta entre dos puntos",
+            "La cantidad de líquido que cabe dentro de una botella",
+            "El peso o la masa de un objeto medido en una balanza",
+            "La cantidad de cuadritos que quedan dentro de una figura plana"
+        ],
+        "correct_answer": "La magnitud física que expresa la distancia recta entre dos puntos",
+        "explanation": "La longitud es la magnitud física que expresa la distancia entre dos puntos y nos permite medir el largo, ancho o altura de los objetos.",
+        "image": "/static/img/questions_geo/q01.png",
+        "image_alt": "Ilustración: ¿Qué es la Longitud en Geometría?"
+    },
+    {
+        "id": 2,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "En la actividad 'El Rally de la Cuarta', ¿cómo se mide correctamente una cuarta con la mano?",
+        "context": "Actividad 'El Rally de la Cuarta':\nMedición de objetos del aula con el cuerpo.",
+        "options": [
+            "Extendiendo la mano al máximo, desde la punta del dedo pulgar hasta la punta del dedo meñique",
+            "Cerrando el puño fuertemente y contando los nudillos de la mano",
+            "Midiendo únicamente el largo del dedo índice doblado",
+            "Juntando todos los dedos apretados y midiendo solo la palma"
+        ],
+        "correct_answer": "Extendiendo la mano al máximo, desde la punta del dedo pulgar hasta la punta del dedo meñique",
+        "explanation": "La cuarta se define como la distancia comprendida entre el extremo del dedo pulgar y el extremo del dedo meñique con la mano completamente extendida.",
+        "image": "/static/img/questions_geo/q02.png",
+        "image_alt": "Ilustración: Patrón de Medida - La Cuarta"
+    },
+    {
+        "id": 3,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "Al medir el largo del pupitre o del tablero con la cuarta, ¿por qué es obligatorio colocar la mano de forma consecutiva uniendo el meñique con el siguiente pulgar?",
+        "context": "Instrucción del taller:\n'Asegúrate de colocar tu mano de forma consecutiva, uniendo el dedo meñique con el pulgar...'",
+        "options": [
+            "Para evitar la dispersión en los datos y no dejar espacios vacíos sin medir",
+            "Porque así la mano se cansa menos durante la clase",
+            "Para que el pupitre se vuelva más grande de lo que es",
+            "Para cambiar de mano cada vez que se avanza un centímetro"
+        ],
+        "correct_answer": "Para evitar la dispersión en los datos y no dejar espacios vacíos sin medir",
+        "explanation": "La técnica consecutiva garantiza continuidad en la medición: al unir el meñique con el siguiente pulgar sin dejar huecos se evita la dispersión y el error en el conteo.",
+        "image": "/static/img/questions_geo/q03.png",
+        "image_alt": "Ilustración: Técnica Consecutiva del Rally de la Cuarta"
+    },
+    {
+        "id": 4,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "Evaluación Tipo Prueba Saber: Juan y María miden el ancho de la puerta del salón de clase. Juan dice que mide 6 cuartas, pero María dice que mide 8 cuartas. ¿Por qué los estudiantes obtuvieron resultados diferentes si midieron el mismo objeto?",
+        "context": "Situación Saber:\n• Juan registra: 6 cuartas\n• María registra: 8 cuartas",
+        "options": [
+            "Porque la cuarta es un patrón no estandarizado que varía según el tamaño de la mano de cada persona",
+            "Porque la puerta se hizo más pequeña cuando María la midió",
+            "Porque Juan utilizó una regla graduada y María utilizó sus pasos",
+            "Porque el ancho de una puerta es un atributo que no se puede medir con el cuerpo"
+        ],
+        "correct_answer": "Porque la cuarta es un patrón no estandarizado que varía según el tamaño de la mano de cada persona",
+        "explanation": "La cuarta es un patrón arbitrario corporal. Como la mano de Juan es más grande que la de María, él necesitó menos cuartas (6) que María (8) para cubrir la misma puerta.",
+        "image": "/static/img/questions_geo/q04.png",
+        "image_alt": "Situación Saber: Juan y María miden la puerta del aula"
+    },
+    {
+        "id": 5,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "¿Qué significa que los pasos, las cuartas o los pulgares sean considerados 'patrones arbitrarios' o no estandarizados?",
+        "context": "Conceptos de Medición:\nUnidades arbitrarias vs unidades estandarizadas.",
+        "options": [
+            "Son unidades de medida que varían de una persona a otra porque dependen del cuerpo de quien mide",
+            "Son instrumentos metálicos con números grabados de fábrica",
+            "Son medidas universales acordadas por los científicos de todo el mundo",
+            "Son unidades fijas que nunca cambian de tamaño sin importar quién las use"
+        ],
+        "correct_answer": "Son unidades de medida que varían de una persona a otra porque dependen del cuerpo de quien mide",
+        "explanation": "Los patrones corporales son arbitrarios porque no son fijos: el pie, la mano o el paso varían entre niños y adultos.",
+        "image": "/static/img/questions_geo/q05.png",
+        "image_alt": "Ilustración: Patrones Arbitrarios y No Estandarizados"
+    },
+    {
+        "id": 6,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "Si Juan obtuvo 6 cuartas y María 8 cuartas al medir el ancho de la misma puerta del aula, ¿qué conclusión matemática sobre sus manos es correcta?",
+        "context": "Análisis comparativo:\nPuerta del salón = 6 cuartas de Juan = 8 cuartas de María.",
+        "options": [
+            "La mano de Juan es más grande que la de María porque necesitó menos cuartas para cubrir la misma distancia",
+            "La mano de María es más grande porque el número 8 es mayor que 6",
+            "Ambas manos tienen exactamente el mismo tamaño",
+            "Juan midió mal porque siempre se deben obtener 10 cuartas"
+        ],
+        "correct_answer": "La mano de Juan es más grande que la de María porque necesitó menos cuartas para cubrir la misma distancia",
+        "explanation": "A mayor tamaño del patrón de medida, menor cantidad de veces se debe repetir para cubrir una misma longitud.",
+        "image": "/static/img/questions_geo/q06.png",
+        "image_alt": "Ilustración: Relación Inversa entre Tamaño de Mano y Cuartas"
+    },
+    {
+        "id": 7,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "En la actividad 'Pasos por la I.E. Cecilia de Lleras', ¿cómo se deben realizar los pasos para medir distancias en el patio escolar?",
+        "context": "Actividad 2 del taller:\nMedición de distancias en el patio del colegio.",
+        "options": [
+            "Caminando con pisadas firmes, rectas y uniformes, sin dar saltos ni cambiar el ritmo",
+            "Dando zancadas enormes unas veces y pasitos cortos otras veces",
+            "Corriendo a toda velocidad para llegar primero",
+            "Saltando en un solo pie con los ojos cerrados"
+        ],
+        "correct_answer": "Caminando con pisadas firmes, rectas y uniformes, sin dar saltos ni cambiar el ritmo",
+        "explanation": "Para que la medición con pasos sea lo más constante y confiable posible, se exige caminar con pasos firmes, rectos y uniformes.",
+        "image": "/static/img/questions_geo/q07.png",
+        "image_alt": "Ilustración: Medición con Pasos en el Patio Escolar"
+    },
+    {
+        "id": 8,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "Observa el 'Diagrama de conteo de pasos' del taller: de la puerta del salón a la base de la pizarra se registraron pisadas rectas consecutivas marcadas del 1 al 8. ¿Cuál es la distancia medida?",
+        "context": "Diagrama del taller:\nRecorrido con pisadas marcadas: ①, ②, ③, ④, ⑤, ⑥, ⑦, ⑧.",
+        "options": [
+            "8 pasos lineales",
+            "4 pasos lineales",
+            "16 pasos lineales",
+            "2 pasos lineales"
+        ],
+        "correct_answer": "8 pasos lineales",
+        "explanation": "El diagrama enumera exactamente 8 pisadas consecutivas desde la puerta hasta la base de la pizarra, lo que equivale a 8 pasos lineales.",
+        "image": "/static/img/questions_geo/q08.png",
+        "image_alt": "Diagrama de Pasos: De la Puerta a la Pizarra"
+    },
+    {
+        "id": 9,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "En la actividad 'Precisión con el Pulgar', los estudiantes recolectan ramitas secas y hojas de roble. ¿Por qué el dedo pulgar es un patrón adecuado para estos objetos?",
+        "context": "Actividad 3:\nMedición de hojas de roble y ramitas con el dedo pulgar.",
+        "options": [
+            "Porque son objetos pequeños del entorno escolar y el pulgar es una unidad corta apropiada para su tamaño",
+            "Porque una ramita solo se puede medir con las dos manos juntas",
+            "Porque el dedo pulgar mide exactamente 1 metro",
+            "Porque las hojas de roble no tienen longitud medible"
+        ],
+        "correct_answer": "Porque son objetos pequeños del entorno escolar y el pulgar es una unidad corta apropiada para su tamaño",
+        "explanation": "Para objetos pequeños del entorno natural, como una hoja o ramita, el ancho del pulgar es la unidad corporal más cercana y proporcional a su tamaño.",
+        "image": "/static/img/questions_geo/q09.png",
+        "image_alt": "Ilustración: Precisión con el Pulgar en Elementos Pequeños"
+    },
+    {
+        "id": 10,
+        "category": "Taller 1: Longitud y Patrones",
+        "question": "¿Cómo se define la 'dispersión' en los resultados de una medición cuando usamos patrones corporales no estandarizados?",
+        "context": "Concepto del taller (Sopa de letras):\nVariación de resultados entre compañeros.",
+        "options": [
+            "La variación o diferencias obtenidas entre los datos debido a que los patrones corporales tienen tamaños distintos",
+            "La rotura accidental de la regla graduada durante la clase",
+            "El peso total de los útiles escolares dentro de la mochila",
+            "La línea recta que divide un círculo en dos partes iguales"
+        ],
+        "correct_answer": "La variación o diferencias obtenidas entre los datos debido a que los patrones corporales tienen tamaños distintos",
+        "explanation": "La dispersión es la variabilidad o diferencia numérica entre los resultados de una medición provocada por el uso de patrones no estandarizados.",
+        "image": "/static/img/questions_geo/q10.png",
+        "image_alt": "Ilustración: ¿Qué es la Dispersión en la Medición?"
+    },
+
+    # -------------------------------------------------------------
+    # TALLER 2: INSTRUMENTOS ESTANDARIZADOS Y PRECISIÓN (Q11 - Q20)
+    # -------------------------------------------------------------
+    {
+        "id": 11,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "En el laboratorio 'Mido mi estuche', ¿cuál es la regla de oro obligatoria para medir la longitud de un objeto con la regla graduada?",
+        "context": "Instrucción del taller:\n'Recuerda que para obtener una medida con exactitud, debes ubicar el inicio del objeto siempre...'",
+        "options": [
+            "Ubicar el inicio del objeto siempre en la marca del punto cero (0) de la regla",
+            "Colocar el objeto en la marca del número 1 para que sea más fácil contar",
+            "Iniciar la medición desde el borde plástico de la regla aunque esté antes del cero",
+            "Colocar el objeto en el número que más nos guste"
+        ],
+        "correct_answer": "Ubicar el inicio del objeto siempre en la marca del punto cero (0) de la regla",
+        "explanation": "La regla graduada inicia su escala numérica en el cero (0). Si ubicamos el extremo del objeto en el cero, el número donde termine coincidirá exactamente con su longitud real.",
+        "image": "/static/img/questions_geo/q11.png",
+        "image_alt": "Ilustración: La Regla de Oro - El Punto Cero (0)"
+    },
+    {
+        "id": 12,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "Evaluación Tipo Prueba Saber: Un estudiante de la I.E. Cecilia de Lleras quiere medir el largo de su sacapuntas. Coloca el sacapuntas empezando desde la marca del número 1 en su regla y el objeto termina en la marca del número 4. ¿Cuál es la medida real del sacapuntas y por qué?",
+        "context": "Situación Saber:\n• Inicio del sacapuntas: marca 1 cm\n• Final del sacapuntas: marca 4 cm",
+        "options": [
+            "Mide 3 cm porque la medición no inició desde el punto cero (4 - 1 = 3 cm)",
+            "Mide 4 cm porque ese es el número donde termina el objeto",
+            "Mide 1 cm porque es un objeto muy pequeño",
+            "No se puede medir porque la regla está dañada"
+        ],
+        "correct_answer": "Mide 3 cm porque la medición no inició desde el punto cero (4 - 1 = 3 cm)",
+        "explanation": "Como no inició en el cero sino en el 1, se debe restar la posición inicial de la final: 4 cm - 1 cm = 3 cm de longitud real.",
+        "image": "/static/img/questions_geo/q12.png",
+        "image_alt": "Situación Saber: El Sacapuntas medido de 1 a 4 cm"
+    },
+    {
+        "id": 13,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "¿Qué es el centímetro (cm) y cuál es su principal ventaja frente a las medidas corporales?",
+        "context": "Conceptos de Medición Estandarizada:\nLa regla escolar y sus unidades.",
+        "options": [
+            "Es una unidad estandarizada de longitud fija que mide exactamente lo mismo para todas las personas",
+            "Es un patrón que cambia según la estatura de quien lo utiliza",
+            "Es una medida que solo se puede usar para pesar líquidos",
+            "Es una unidad arbitraria que inventó cada estudiante en su casa"
+        ],
+        "correct_answer": "Es una unidad estandarizada de longitud fija que mide exactamente lo mismo para todas las personas",
+        "explanation": "El centímetro es una unidad universal del sistema métrico decimal. Mide lo mismo en Colombia o en cualquier parte del mundo, eliminando las variaciones del cuerpo.",
+        "image": "/static/img/questions_geo/q13.png",
+        "image_alt": "Ilustración: Unidad Estandarizada - El Centímetro (cm)"
+    },
+    {
+        "id": 14,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "En el crucigrama geométrico: ¿cuál es la unidad universal ideal para medir distancias grandes, sabiendo que exactamente 100 centímetros forman esta unidad?",
+        "context": "Pista del crucigrama (Horizontal 2 - 5 letras):\n'100 centímetros forman esta unidad.'",
+        "options": [
+            "El metro (m)",
+            "El litro (l)",
+            "El gramo (g)",
+            "El grado (°)"
+        ],
+        "correct_answer": "El metro (m)",
+        "explanation": "1 metro (m) equivale exactamente a 100 centímetros (cm) y es la unidad fundamental de longitud del Sistema Internacional.",
+        "image": "/static/img/questions_geo/q14.png",
+        "image_alt": "Ilustración: Equivalencia Fundamental - 1 Metro = 100 cm"
+    },
+    {
+        "id": 15,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "Criterio de selección de herramientas: Si necesitas medir la cintura de un compañero para un disfraz o el contorno del tronco de un árbol, ¿qué instrumento debes elegir y por qué?",
+        "context": "Concepto del taller (Crucigrama):\nCapacidad para elegir la herramienta más pertinente según la forma del objeto.",
+        "options": [
+            "La cinta métrica, porque es flexible y se puede doblar para adaptarse a superficies curvas",
+            "La regla de madera de 30 cm, porque es rígida e indeformable",
+            "Una escuadra triangular metálica",
+            "Un transportador escolar de plástico rígido"
+        ],
+        "correct_answer": "La cinta métrica, porque es flexible y se puede doblar para adaptarse a superficies curvas",
+        "explanation": "La cinta métrica (usada comúnmente por sastres) es una herramienta de medición flexible adecuada para contornos o superficies curvas no planas.",
+        "image": "/static/img/questions_geo/q15.png",
+        "image_alt": "Ilustración: Criterio de Selección - Regla vs Cinta Métrica"
+    },
+    {
+        "id": 16,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "En la actividad 'Construyendo bordes', el profesor pide trazar tres líneas rectas en el cuaderno: una de 5 cm, una de 12 cm y una de 8 cm. ¿Cuál de ellas tiene la mayor longitud?",
+        "context": "Reto de trazo con regla:\nLínea A: 5 cm | Línea B: 12 cm | Línea C: 8 cm.",
+        "options": [
+            "La línea de 12 cm",
+            "La línea de 8 cm",
+            "La línea de 5 cm",
+            "Todas tienen la misma longitud"
+        ],
+        "correct_answer": "La línea de 12 cm",
+        "explanation": "Comparando las medidas: 12 cm > 8 cm > 5 cm. La línea de 12 cm es la más larga de las tres.",
+        "image": "/static/img/questions_geo/q16.png",
+        "image_alt": "Ilustración: Reto de Trazo - Líneas con Medidas Exactas"
+    },
+    {
+        "id": 17,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "¿En qué consiste la habilidad geométrica de la 'estimación' de una longitud?",
+        "context": "Concepto del crucigrama (Horizontal 10):\n'Habilidad que se entrena para calcular distancias a simple vista...'",
+        "options": [
+            "En el proceso mental de proyectar un valor numérico aproximado antes de usar un instrumento de medición",
+            "En memorizar el nombre de todos los planetas del sistema solar",
+            "En dibujar líneas curvas sin utilizar regla ni lápiz",
+            "En medir siempre con una balanza electrónica digital"
+        ],
+        "correct_answer": "En el proceso mental de proyectar un valor numérico aproximado antes de usar un instrumento de medición",
+        "explanation": "Estimar es anticipar un valor cercano a la magnitud real a simple vista, comparándola con referentes conocidos antes de verificar con la regla.",
+        "image": "/static/img/questions_geo/q17.png",
+        "image_alt": "Ilustración: La Estimación - Calcular a Simple Vista"
+    },
+    {
+        "id": 18,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "Si un estudiante estima a simple vista que su marcador mide 10 cm, pero al medirlo con la regla comprueba que mide exactamente 9 cm, ¿cuál fue su error de estimación?",
+        "context": "Cálculo del error:\n• Medida estimada: 10 cm\n• Medida real verificada: 9 cm",
+        "options": [
+            "1 cm de diferencia (10 - 9 = 1 cm)",
+            "19 cm en total",
+            "0 cm porque casi acierta",
+            "90 cm por multiplicación"
+        ],
+        "correct_answer": "1 cm de diferencia (10 - 9 = 1 cm)",
+        "explanation": "El error de estimación es la diferencia numérica entre la medida estimada y la medida real verificada: 10 cm - 9 cm = 1 cm.",
+        "image": "/static/img/questions_geo/q18.png",
+        "image_alt": "Ilustración: Error de Estimación - Diferencia Numérica"
+    },
+    {
+        "id": 19,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "En el reto de trazo geométrico se pide trazar líneas 'perpendiculares' a los bordes de la hoja. ¿Qué característica tienen dos líneas perpendiculares?",
+        "context": "Propiedad de rectas perpendiculares:\nConstrucción de bordes en el cuaderno de geometría.",
+        "options": [
+            "Se cortan formando un ángulo recto perfecto de 90° (como la esquina de una hoja)",
+            "Son dos líneas paralelas que nunca se tocan ni se cruzan",
+            "Son dos líneas curvas que forman un círculo completo",
+            "Son líneas inclinadas que van en direcciones opuestas sin tocarse"
+        ],
+        "correct_answer": "Se cortan formando un ángulo recto perfecto de 90° (como la esquina de una hoja)",
+        "explanation": "Dos líneas rectas son perpendiculares cuando se intersecan formando un ángulo recto exacto de 90 grados, característico de las esquinas de libros y cuadernos.",
+        "image": "/static/img/questions_geo/q19.png",
+        "image_alt": "Ilustración: Líneas Perpendiculares y Ángulo Recto (90°)"
+    },
+    {
+        "id": 20,
+        "category": "Taller 2: Regla y Precisión",
+        "question": "De acuerdo con el laboratorio de precisión, si un borrador de nata mide 5 cm de largo y un marcador de tablero mide 12 cm de largo, ¿por cuántos centímetros supera el marcador al borrador?",
+        "context": "Comparación de útiles del estuche:\n• Borrador de nata: 5 cm\n• Marcador de tablero: 12 cm",
+        "options": [
+            "Por 7 cm de diferencia (12 - 5 = 7 cm)",
+            "Por 17 cm de diferencia",
+            "Por 2 cm de diferencia",
+            "Por 60 cm de diferencia"
+        ],
+        "correct_answer": "Por 7 cm de diferencia (12 - 5 = 7 cm)",
+        "explanation": "La diferencia se obtiene restando la longitud menor de la mayor: 12 cm - 5 cm = 7 cm.",
+        "image": "/static/img/questions_geo/q20.png",
+        "image_alt": "Ilustración: Diferencia de Longitudes - Marcador vs Borrador"
+    },
+
+    # -------------------------------------------------------------
+    # TALLER 3: PERÍMETRO EN CUADRÍCULA (Q21 - Q30)
+    # -------------------------------------------------------------
+    {
+        "id": 21,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "¿Qué es el perímetro de una figura geométrica plana?",
+        "context": "Guía Técnica Semana 21:\nConcepto de perímetro y contorno exterior.",
+        "options": [
+            "La medida de la longitud total de todo su contorno o borde exterior",
+            "La cantidad de color que se necesita para pintar el centro de la figura",
+            "El peso total de la hoja cuadriculada",
+            "El número de cuadritos que quedan encerrados en el interior"
+        ],
+        "correct_answer": "La medida de la longitud total de todo su contorno o borde exterior",
+        "explanation": "El perímetro es la medida lineal del contorno o borde exterior que encierra y delimita a una figura geométrica bidimensional.",
+        "image": "/static/img/questions_geo/q21.png",
+        "image_alt": "Ilustración: ¿Qué es el Perímetro en Geometría?"
+    },
+    {
+        "id": 22,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "En un plano cuadriculado donde cada lado de un cuadrito representa 1 unidad de longitud, ¿cómo se calcula el perímetro de una figura?",
+        "context": "Metodología en cuadrícula:\nCada segmento de borde = 1 unidad lineal.",
+        "options": [
+            "Contando ordenadamente cada uno de los segmentos que forman el borde exterior de la figura",
+            "Multiplicando el número de esquinas por 10",
+            "Contando todos los cuadritos internos y sumando 5",
+            "Midiendo únicamente el lado superior y olvidando los demás"
+        ],
+        "correct_answer": "Contando ordenadamente cada uno de los segmentos que forman el borde exterior de la figura",
+        "explanation": "El perímetro en cuadrícula se calcula contando la cantidad total de lados de cuadritos que conforman el borde o contorno exterior de la figura.",
+        "image": "/static/img/questions_geo/q22.png",
+        "image_alt": "Ilustración: Cálculo de Perímetro en Cuadrícula"
+    },
+    {
+        "id": 23,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Regla técnica fundamental: al calcular el perímetro de una figura en una superficie cuadriculada, ¿qué líneas o segmentos se deben EVITAR contar?",
+        "context": "Advertencia explícita del taller:\n'Recuerda contar únicamente los segmentos del contorno exterior y evitar...'",
+        "options": [
+            "Evitar contar las líneas internas que quedan dentro de la figura",
+            "Evitar contar las esquinas superiores",
+            "Evitar contar el lado más largo del rectángulo",
+            "Evitar contar los números de la parte de abajo"
+        ],
+        "correct_answer": "Evitar contar las líneas internas que quedan dentro de la figura",
+        "explanation": "El perímetro mide únicamente el borde exterior. Las líneas de cuadrícula que quedan en el interior de la figura pertenecen al área interior y NO se deben sumar al perímetro.",
+        "image": "/static/img/questions_geo/q23.png",
+        "image_alt": "Ilustración: Regla Técnica - No Contar Líneas Internas"
+    },
+    {
+        "id": 24,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Actividad 'El Local del Mercado del Sur': Un comerciante diseña su puesto rectangular de frutas ocupando 3 cuadritos de largo por 2 cuadritos de ancho. ¿Cuál es el perímetro total del local?",
+        "context": "Actividad 1:\n• Largo = 3 cuadritos (arriba y abajo)\n• Ancho = 2 cuadritos (a los lados)",
+        "options": [
+            "10 unidades lineales (3 + 2 + 3 + 2 = 10)",
+            "6 unidades lineales",
+            "5 unidades lineales",
+            "12 unidades lineales"
+        ],
+        "correct_answer": "10 unidades lineales (3 + 2 + 3 + 2 = 10)",
+        "explanation": "El rectángulo tiene dos lados de 3 unidades y dos lados de 2 unidades. Perímetro = 3 + 2 + 3 + 2 = 10 unidades lineales.",
+        "image": "/static/img/questions_geo/q24.png",
+        "image_alt": "Plano del Local: Mercado del Sur (3x2 Cuadritos)"
+    },
+    {
+        "id": 25,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Evaluación Tipo Prueba Saber: Un pescador del Río Sinú dibuja en su libreta cuadriculada el diseño de un nuevo planchón de transporte. El diseño corresponde a un rectángulo que mide exactamente 4 unidades de largo por 3 unidades de ancho. Si necesita colocar una tira de madera resistente en todo el contorno exterior para reforzarlo, ¿cuál es el perímetro total del diseño?",
+        "context": "Situación Saber:\n• Planchón rectangular: 4 unidades de largo por 3 unidades de ancho.\n• Se coloca tira de madera en todo el contorno.",
+        "options": [
+            "14 unidades lineales",
+            "7 unidades lineales",
+            "12 unidades lineales",
+            "24 unidades lineales"
+        ],
+        "correct_answer": "14 unidades lineales",
+        "explanation": "El perímetro es la suma de los 4 lados del rectángulo: 4 (largo) + 3 (ancho) + 4 (largo) + 3 (ancho) = 14 unidades lineales.",
+        "image": "/static/img/questions_geo/q25.png",
+        "image_alt": "Situación Saber: Planchón del Río Sinú (4x3)"
+    },
+    {
+        "id": 26,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Para calcular el perímetro de cualquier figura rectangular conociendo su largo y su ancho, ¿cuál es la fórmula matemática formal?",
+        "context": "Fórmula matemática general:\nRectángulo con base (largo) y altura (ancho).",
+        "options": [
+            "Perímetro = Largo + Ancho + Largo + Ancho (o 2 × Largo + 2 × Ancho)",
+            "Perímetro = Largo × Ancho",
+            "Perímetro = Largo - Ancho",
+            "Perímetro = Largo + Ancho únicamente"
+        ],
+        "correct_answer": "Perímetro = Largo + Ancho + Largo + Ancho (o 2 × Largo + 2 × Ancho)",
+        "explanation": "Un rectángulo tiene 4 lados en total (dos largos iguales y dos anchos iguales). Para hallar su perímetro se suman los 4 lados completos.",
+        "image": "/static/img/questions_geo/q26.png",
+        "image_alt": "Ilustración: Fórmula del Perímetro del Rectángulo"
+    },
+    {
+        "id": 27,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "En la actividad 'La Inicial de Montería en Cuadrícula' (Letra M), ¿qué nombre reciben los puntos o esquinas donde se unen dos segmentos del contorno exterior?",
+        "context": "Actividad 2:\nAnálisis Grítico Escolar - Plano de la letra 'M' de Montería.",
+        "options": [
+            "Vértices",
+            "Lados internos",
+            "Radios",
+            "Ejes de simetría"
+        ],
+        "correct_answer": "Vértices",
+        "explanation": "En geometría, los puntos de unión donde se encuentran dos segmentos rectos de una figura se denominan vértices (marcados como puntos rojos en la guía escolar).",
+        "image": "/static/img/questions_geo/q27.png",
+        "image_alt": "Plano de la Letra 'M' de Montería en Cuadrícula"
+    },
+    {
+        "id": 28,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Si una figura geométrica rectangular trazada en una cuadrícula tiene lados de 2 unidades arriba, 4 unidades a la derecha, 2 unidades abajo y 4 unidades a la izquierda, ¿cuál es su perímetro total?",
+        "context": "Conteo de contorno exterior:\n2 unidades + 4 unidades + 2 unidades + 4 unidades.",
+        "options": [
+            "12 unidades lineales",
+            "8 unidades lineales",
+            "16 unidades lineales",
+            "6 unidades lineales"
+        ],
+        "correct_answer": "12 unidades lineales",
+        "explanation": "Sumando los 4 lados ordenadamente: 2 + 4 + 2 + 4 = 12 unidades lineales.",
+        "image": "/static/img/questions_geo/q28.png",
+        "image_alt": "Ilustración: Figura con Lados 2, 4, 2, 4 Unidades"
+    },
+    {
+        "id": 29,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "¿Cuál es la diferencia fundamental entre la 'longitud' de un lado y el 'perímetro' de una figura?",
+        "context": "Diferenciación de atributos medibles (DBA 4):\nLongitud vs Perímetro.",
+        "options": [
+            "La longitud mide la distancia de un solo segmento o lado, mientras que el perímetro es la suma de las longitudes de todos los lados exteriores",
+            "La longitud mide figuras curvas y el perímetro mide únicamente cuadrados",
+            "Son exactamente lo mismo y miden un solo lado",
+            "El perímetro se mide en kilos y la longitud en litros"
+        ],
+        "correct_answer": "La longitud mide la distancia de un solo segmento o lado, mientras que el perímetro es la suma de las longitudes de todos los lados exteriores",
+        "explanation": "La longitud es la medida de un solo segmento. El perímetro es el atributo compuesto que resulta de sumar las longitudes de todo el contorno exterior.",
+        "image": "/static/img/questions_geo/q29.png",
+        "image_alt": "Ilustración: Diferencia entre Longitud y Perímetro"
+    },
+    {
+        "id": 30,
+        "category": "Taller 3: Perímetro en Cuadrícula",
+        "question": "Si el comerciante del Mercado del Sur decide ampliar su local rectangular a 5 cuadritos de largo manteniendo los 2 cuadritos de ancho, ¿cuál será el nuevo perímetro de su local?",
+        "context": "Ampliación del local:\n• Nuevo largo = 5 unidades\n• Ancho = 2 unidades",
+        "options": [
+            "14 unidades lineales (5 + 2 + 5 + 2 = 14)",
+            "10 unidades lineales",
+            "7 unidades lineales",
+            "20 unidades lineales"
+        ],
+        "correct_answer": "14 unidades lineales (5 + 2 + 5 + 2 = 14)",
+        "explanation": "Calculando con las nuevas medidas: 5 (arriba) + 2 (derecha) + 5 (abajo) + 2 (izquierda) = 14 unidades lineales.",
+        "image": "/static/img/questions_geo/q30.png",
+        "image_alt": "Ilustración: Ampliación del Local a 5x2 Cuadritos"
+    },
+
+    # -------------------------------------------------------------
+    # TALLER 4: POLÍGONOS EN EL GEOPLANO (Q31 - Q40)
+    # -------------------------------------------------------------
+    {
+        "id": 31,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "¿Qué es un geoplano y cómo se construyen figuras geométricas en él durante la clase de Geometría?",
+        "context": "Guía Técnica Semana 23:\nUso del geoplano artesanal y bandas elásticas.",
+        "options": [
+            "Un tablero con pines o clavos donde se estiran bandas elásticas para formar polígonos",
+            "Un mapa geográfico para aprender las ciudades de Colombia",
+            "Un microscopio para observar bacterias y células",
+            "Una regla redonda para dibujar círculos con compás"
+        ],
+        "correct_answer": "Un tablero con pines o clavos donde se estiran bandas elásticas para formar polígonos",
+        "explanation": "El geoplano es un recurso didáctico compuesto por un tablero con una cuadrícula de pines o clavos equidistantes donde se sujetan bandas elásticas para construir figuras.",
+        "image": "/static/img/questions_geo/q31.png",
+        "image_alt": "Ilustración: El Geoplano y las Bandas Elásticas"
+    },
+    {
+        "id": 32,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "En el geoplano artesanal, ¿a qué equivale exactamente 1 unidad de longitud lineal?",
+        "context": "Instrucción del taller:\n'Recuerda que cada espacio entre dos pines o clavos consecutivos equivale a...'",
+        "options": [
+            "Al espacio o distancia recta entre dos pines o clavos consecutivos",
+            "A la suma de todos los clavos del tablero",
+            "A dar tres vueltas completas alrededor de la mesa",
+            "A la longitud de toda la banda elástica estirada al máximo"
+        ],
+        "correct_answer": "Al espacio o distancia recta entre dos pines o clavos consecutivos",
+        "explanation": "En el geoplano, la unidad de longitud estándar es el segmento comprendido entre dos clavos o pines adyacentes alineados.",
+        "image": "/static/img/questions_geo/q32.png",
+        "image_alt": "Ilustración: Unidad de Longitud en el Geoplano"
+    },
+    {
+        "id": 33,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "De acuerdo con el criterio de auto-evaluación del taller, ¿cuál es la condición obligatoria para que una figura trazada en el geoplano sea un polígono?",
+        "context": "Criterio de auto-evaluación:\n'Identifico que un polígono en el geoplano debe ser...'",
+        "options": [
+            "Debe ser una figura geométrica completamente cerrada por las bandas elásticas",
+            "Debe tener únicamente líneas curvas sin esquinas",
+            "Debe quedar con un extremo abierto para que entre aire",
+            "Debe ocupar obligatoriamente todos los clavos del tablero"
+        ],
+        "correct_answer": "Debe ser una figura geométrica completamente cerrada por las bandas elásticas",
+        "explanation": "Un polígono es una figura geométrica plana delimitada por una secuencia cerrada de segmentos rectos. Si queda abierta, no es un polígono.",
+        "image": "/static/img/questions_geo/q33.png",
+        "image_alt": "Ilustración: Condición Obligatoria - Polígono Cerrado"
+    },
+    {
+        "id": 34,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "Actividad 'El Planchón en el Geoplano': Utilizas tu geoplano para construir un rectángulo que represente un planchón del Río Sinú de 3 unidades de largo por 2 unidades de ancho. ¿Cuántas unidades lineales mide el perímetro del planchón?",
+        "context": "Actividad 1:\nPlanchón rectangular de 3 espacios de largo por 2 espacios de ancho entre pines.",
+        "options": [
+            "10 unidades lineales (3 + 2 + 3 + 2 = 10)",
+            "6 unidades lineales",
+            "5 unidades lineales",
+            "12 unidades lineales"
+        ],
+        "correct_answer": "10 unidades lineales (3 + 2 + 3 + 2 = 10)",
+        "explanation": "Contando los espacios entre pines: 3 (largo superior) + 2 (lado derecho) + 3 (largo inferior) + 2 (lado izquierdo) = 10 unidades lineales.",
+        "image": "/static/img/questions_geo/q34.png",
+        "image_alt": "Geoplano: Planchón del Río Sinú (3x2)"
+    },
+    {
+        "id": 35,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "Actividad 'Diseñando Carpas del Mercado del Sur': En el geoplano construyes un triángulo uniendo tres pines con una banda elástica para simular el techo de una carpa. ¿Cuántos lados y cuántos vértices (pines de esquina) tiene tu figura?",
+        "context": "Actividad 2:\nCarpa triangular en el geoplano.",
+        "options": [
+            "Tiene 3 lados rectos y 3 vértices",
+            "Tiene 4 lados y 2 vértices",
+            "Tiene 3 lados y 5 vértices",
+            "Tiene 1 lado curvo y 0 vértices"
+        ],
+        "correct_answer": "Tiene 3 lados rectos y 3 vértices",
+        "explanation": "Un triángulo siempre tiene exactamente 3 lados y 3 vértices (las 3 esquinas donde se enganchan los pines).",
+        "image": "/static/img/questions_geo/q35.png",
+        "image_alt": "Geoplano: Carpa Triangular del Mercado del Sur"
+    },
+    {
+        "id": 36,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "Evaluación Tipo Prueba Saber: Un estudiante de grado tercero construye un cuadrado de 3 unidades por cada lado en su geoplano para diseñar la base de un tablero de juegos del Proyecto Centro de Interés. Si el estudiante necesita saber la longitud total de la banda elástica estirada que rodea todo el borde exterior de su figura, ¿cuál es el perímetro del cuadrado que construyó?",
+        "context": "Situación Saber:\n• Cuadrado en geoplano.\n• Cada lado mide 3 unidades.",
+        "options": [
+            "12 unidades lineales (3 + 3 + 3 + 3 = 12)",
+            "6 unidades lineales",
+            "9 unidades lineales",
+            "15 unidades lineales"
+        ],
+        "correct_answer": "12 unidades lineales (3 + 3 + 3 + 3 = 12)",
+        "explanation": "Un cuadrado tiene 4 lados de igual longitud. Perímetro = 3 + 3 + 3 + 3 = 12 unidades lineales.",
+        "image": "/static/img/questions_geo/q36.png",
+        "image_alt": "Situación Saber: Cuadrado 3x3 en Geoplano"
+    },
+    {
+        "id": 37,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "Si en un geoplano construyes un triángulo con lados que miden 3 unidades, 4 unidades y 5 unidades entre pines consecutivos, ¿cuál es el perímetro total del triángulo?",
+        "context": "Cálculo de perímetro triangular:\nLado 1 = 3 u | Lado 2 = 4 u | Lado 3 = 5 u.",
+        "options": [
+            "12 unidades lineales (3 + 4 + 5 = 12)",
+            "7 unidades lineales",
+            "20 unidades lineales",
+            "60 unidades lineales"
+        ],
+        "correct_answer": "12 unidades lineales (3 + 4 + 5 = 12)",
+        "explanation": "El perímetro del triángulo se calcula sumando la longitud de sus tres lados: 3 + 4 + 5 = 12 unidades lineales.",
+        "image": "/static/img/questions_geo/q37.png",
+        "image_alt": "Geoplano: Triángulo con Lados 3, 4 y 5 Unidades"
+    },
+    {
+        "id": 38,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "En el geoplano, ¿qué elemento geométrico representan los pines o clavos donde la banda elástica cambia de dirección para formar una esquina?",
+        "context": "Elementos de los polígonos:\nLados, vértices y contorno.",
+        "options": [
+            "Los vértices del polígono",
+            "Las líneas paralelas",
+            "Las unidades de peso",
+            "Los diámetros del círculo"
+        ],
+        "correct_answer": "Los vértices del polígono",
+        "explanation": "Cada pin donde la banda elástica se dobla para cambiar de dirección representa un vértice de la figura geométrica.",
+        "image": "/static/img/questions_geo/q38.png",
+        "image_alt": "Ilustración: ¿Qué son los Vértices en el Geoplano?"
+    },
+    {
+        "id": 39,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "Si un estudiante estira una banda elástica en el geoplano uniendo 4 pines en línea continua pero deja los dos extremos sueltos sin cerrar, ¿por qué esa figura NO es un polígono?",
+        "context": "Definición geométrica de polígono:\nFigura abierta vs figura cerrada.",
+        "options": [
+            "Porque es una figura abierta y un polígono requiere un contorno completamente cerrado que encierre una región",
+            "Porque en el geoplano solo se permiten círculos",
+            "Porque la banda elástica no es del color adecuado",
+            "Porque se necesitan al menos 20 clavos para hacer un polígono"
+        ],
+        "correct_answer": "Porque es una figura abierta y un polígono requiere un contorno completamente cerrado que encierre una región",
+        "explanation": "Por definición geométrica, un polígono debe delimitar una región interior cerrada. Una línea poligonal abierta no encierra área y por lo tanto no constituye un polígono.",
+        "image": "/static/img/questions_geo/q39.png",
+        "image_alt": "Ilustración: Figura Abierta vs Figura Cerrada"
+    },
+    {
+        "id": 40,
+        "category": "Taller 4: Polígonos y Geoplano",
+        "question": "En el 'Proyecto Centro de Interés', ¿qué gran ventaja pedagógica tiene usar el geoplano para aprender sobre el perímetro antes de usar solo fórmulas numéricas?",
+        "context": "Enfoque pedagógico del DBA:\nManipulación concreta de materiales geométricos.",
+        "options": [
+            "Permite a los niños tocar, construir con las manos y contar directamente cada unidad lineal entre pines",
+            "Hace que ya no sea necesario aprender a sumar",
+            "Evita tener que llevar lápices y cuadernos al colegio",
+            "Sirve exclusivamente para jugar sin relación con las matemáticas"
+        ],
+        "correct_answer": "Permite a los niños tocar, construir con las manos y contar directamente cada unidad lineal entre pines",
+        "explanation": "El geoplano proporciona una experiencia táctil y visual concreta que ayuda a los estudiantes de primaria a comprender el significado real de 'contorno' y 'perímetro' antes de aplicar fórmulas abstractas.",
+        "image": "/static/img/questions_geo/q40.png",
+        "image_alt": "Ilustración: Ventajas Pedagógicas del Geoplano"
+    }
+]
+
+data = {
+    "id": "geometria",
+    "name": "Geometría (Pensamiento Espacial y Métrico)",
+    "grade": "Grado Tercero",
+    "institution": "Institución Educativa Cecilia de Lleras",
+    "description": "Evaluación basada en los Talleres de Segundo Periodo (Semanas 15, 17, 21 y 23): Medición con el cuerpo y patrones arbitrarios (cuarta, pasos, pulgar), precisión con regla graduada (cm y m), cálculo de perímetros en cuadrículas (Mercado del Sur, Planchón del Sinú, Letra M) y construcción de polígonos en el geoplano.",
+    "badge": "Semana 15, 17, 21 y 23",
+    "icon": "fa-shapes",
+    "color": "sky",
+    "default_question_count": 15,
+    "questions": questions
+}
+
+target_path = "app/subjects/geometria.json"
+with open(target_path, "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+print(f"Creado exitosamente {target_path} con {len(questions)} preguntas completas!")
