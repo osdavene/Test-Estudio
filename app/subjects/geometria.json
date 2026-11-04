@@ -6,7 +6,7 @@
   "description": "Evaluación basada en los Talleres de Segundo Periodo (Semanas 15, 17, 21 y 23): Medición con el cuerpo y patrones arbitrarios (cuarta, pasos, pulgar), precisión con regla graduada (cm y m), cálculo de perímetros en cuadrículas (Mercado del Sur, Planchón del Sinú, Letra M) y construcción de polígonos en el geoplano.",
   "badge": "Semana 15, 17, 21 y 23",
   "icon": "fa-shapes",
-  "color": "sky",
+  "color": "emerald",
   "default_question_count": 15,
   "questions": [
     {
